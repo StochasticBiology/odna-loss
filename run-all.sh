@@ -75,6 +75,7 @@ echo "Command string is $commandstr"
 # create required directories if not already present
 [ ! -d "Data/" ] && mkdir Data/
 [ ! -d "Outputs/" ] && mkdir Outputs/
+[ ! -d "Plots/" ] && mkdir Plots/
 [ ! -d "Downloads/" ] && mkdir Downloads/
 
 if [[ $commandstr == *installrpackages* ]]; then
