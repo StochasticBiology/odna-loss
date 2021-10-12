@@ -4,7 +4,7 @@ Bioinformatics pipeline for data acquisition and analysis on oDNA loss across eu
 Requirements
 ----
 
-Python 3 with `BioPython`, `ete3`; PyMOL; local BLAST; R with libraries:  `ape`, `arm`, `blme`, `caper`, `cowplot`, `e1071`, `geiger`, `GGally`, `ggnewscale`, `ggplot2`, `ggpubr`, `ggpval`, `ggrepel`, `ggtree*`, `ggtreeExtra*`, `glmnet`, `gridExtra`, `hexbin`, `igraph`, `lme4`, `logistf`, `mombf`, `nlme`, `phangorn`, `phytools`, `randomForest`, `stringdist`, `stringr`, `tree` (these R libraries can be installed with a single command-line option below).  (* ggtree needs installing via Bioconductor)
+Python 3 with `BioPython`, `ete3`; PyMOL; local BLAST; R with libraries:  `ape`, `arm`, `blme`, `caper`, `cowplot`, `e1071`, `geiger`, `GGally`, `ggnewscale`, `ggplot2`, `ggpubr`, `ggpval`, `ggrepel`, `ggtree*`, `ggtreeExtra*`, `glmnet`, `gridExtra`, `hexbin`, `igraph`, `lme4`, `logistf`, `mombf`, `nlme`, `phangorn`, `phytools`, `randomForest`, `stringdist`, `stringr`, `tree` (these R libraries can be installed with a single command-line option below).  (* `ggtree` needs installing via Bioconductor)
 
 I haven't computed the exact amount of hard disk space needed, but probably best to have c.10GB free. If you're doing the full BLAST comparison (see below), you'll need at least 130GB hard disk space and several GB of memory, and ideally several cores (default 6).
 
