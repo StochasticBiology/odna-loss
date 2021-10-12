@@ -1,0 +1,146 @@
+Skip to main content
+Skip to local navigation
+Skip to EBI global navigation menu
+Skip to expanded EBI global navigation menu (includes all sub-sections)
+EMBL European Bioinformatics Institute
+Services
+Research
+Training
+About us
+Protein Data Bank in Europe Protein Data Bank
+in EuropeBringing Structure to Biology
+PDBePISA
+ Feedback
+ Share
+PISA Interface List.
+
+Session Map help (id=344-6C-C18)
+Start	Interfaces	Interface Search
+ 	Monomers	 
+ 	Assemblies	 
+ Interfaces in PDB 5iu0 crystal.
+Space symmetry group: I 4. Resolution: 1.50 Å
+RUBISCO FROM ARABIDOPSIS THALIANA
+Interfaces help   XML    View    Details    Download Search
+ ## 	 Structure 1 	 × 	 Structure 2 	 interface 
+ area, Å2 	 ΔiG 
+ kcal/mol 	 ΔiG 
+ P-value 	 NHB 	 NSB 	 NDS 	 CSS 
+ Id 	 NN 	 «» 	 Range 	 iNat 	 iNres 	 Surface Å2 	 Range 	 Symmetry op-n 	 Sym.ID 	 iNat 	 iNres 	 Surface Å2 
+ 1 	 1 		B	 483 	 132 	 18840 	 ◊ 	A	  x,y,z  	 1_555 	 486 	 132 	 18833 	  4491.1 	  -54.7 	 0.004 	 85 	 20 	 1 	 0.801 
+ 2 	 2 		I	 201 	 42 	 8778 	 ◊ 	A	  x,y,z  	 1_555 	 210 	 52 	 18833 	  1813.3 	  -9.7 	 0.630 	 23 	 6 	 0 	 0.649 
+ 3 		J	 192 	 44 	 8777 	 ◊ 	B	  x,y,z  	 1_555 	 213 	 52 	 18840 	  1809.5 	  -10.4 	 0.574 	 28 	 6 	 0 	 0.649 
+Average: 	  1811.4 	  -10.0 	 0.602 	 26 	 6 	 0 	 0.649 
+ 3 	 4 		J	 91 	 26 	 8777 	 ◊ 	B	  -y+1,x,z  	 3_655 	 103 	 29 	 18840 	  836.9 	  -3.0 	 0.680 	 10 	 4 	 0 	 0.161 
+ 5 		A	 103 	 29 	 18833 	 ◊ 	I	  -y+1,x,z  	 3_655 	 90 	 26 	 8778 	  810.4 	  -2.5 	 0.705 	 10 	 4 	 0 	 0.161 
+Average: 	  823.6 	  -2.7 	 0.693 	 10 	 4 	 0 	 0.161 
+ 4 	 6 		B	 54 	 18 	 18840 	 x 	B	  -y+1,x,z  	 3_655 	 49 	 15 	 18840 	  479.5 	  2.4 	 0.863 	 6 	 6 	 0 	 0.023 
+ 7 		A	 48 	 14 	 18833 	 x 	A	  -y+1,x,z  	 3_655 	 55 	 18 	 18833 	  450.3 	  1.7 	 0.810 	 6 	 4 	 0 	 0.023 
+Average: 	  464.9 	  2.0 	 0.836 	 6 	 5 	 0 	 0.023 
+ 5 	 8 		B	 45 	 16 	 18840 	 ◊ 	A	  -y+1,x,z  	 3_655 	 50 	 16 	 18833 	  446.5 	  -2.3 	 0.535 	 6 	 2 	 0 	 0.060 
+ 6 	 9 		J	 41 	 10 	 8777 	 ◊ 	A	  -y+1,x,z  	 3_655 	 38 	 8 	 18833 	  362.3 	  -5.2 	 0.242 	 3 	 0 	 0 	 0.146 
+ 10 		B	 38 	 8 	 18840 	 ◊ 	I	  -y+1,x,z  	 3_655 	 40 	 11 	 8778 	  359.2 	  -5.0 	 0.241 	 3 	 0 	 0 	 0.146 
+Average: 	  360.7 	  -5.1 	 0.241 	 3 	 0 	 0 	 0.146 
+ 7 	 11 		I	 24 	 7 	 8778 	 x 	I	  -y+1,x,z  	 3_655 	 42 	 12 	 8778 	  333.0 	  -7.9 	 0.024 	 0 	 0 	 0 	 0.152 
+ 12 		J	 38 	 10 	 8777 	 x 	J	  -y+1,x,z  	 3_655 	 24 	 8 	 8777 	  322.1 	  -7.6 	 0.032 	 0 	 0 	 0 	 0.152 
+Average: 	  327.6 	  -7.8 	 0.028 	 0 	 0 	 0 	 0.152 
+ 8 	 13 		[CAP]B:502	 20 	 1 	 480 	 f 	B	  x,y,z  	 1_555 	 54 	 24 	 18840 	  281.0 	  -5.0 	 0.640 	 17 	 0 	 0 	 0.343 
+ 14 		[CAP]A:502	 20 	 1 	 473 	 f 	A	  x,y,z  	 1_555 	 50 	 22 	 18833 	  279.2 	  -4.4 	 0.635 	 17 	 0 	 0 	 0.343 
+Average: 	  280.1 	  -4.7 	 0.638 	 17 	 0 	 0 	 0.343 
+ 9 	 15 		A	 21 	 8 	 18833 	 ◊ 	B	  -y,x,z  	 3_555 	 26 	 9 	 18840 	  186.5 	  -2.2 	 0.364 	 0 	 0 	 0 	 0.000 
+ 10 	 16 		I	 13 	 6 	 8778 	 ◊ 	B	  -x+1/2,-y+1/2,z-1/2  	 6_554 	 17 	 6 	 18840 	  120.8 	  -1.8 	 0.349 	 0 	 0 	 0 	 0.000 
+ 11 	 17 		[EDO]B:504	 4 	 1 	 185 	 f 	B	  x,y,z  	 1_555 	 24 	 11 	 18840 	  117.0 	  3.2 	 0.476 	 3 	 0 	 0 	 0.000 
+ 12 	 18 		[EDO]A:506	 4 	 1 	 183 	 ◊ 	A	  x,y,z  	 1_555 	 24 	 9 	 18833 	  110.5 	  3.9 	 0.728 	 4 	 0 	 0 	 0.000 
+ 13 	 19 		[EDO]A:509	 4 	 1 	 185 	 ◊ 	A	  x,y,z  	 1_555 	 21 	 11 	 18833 	  110.4 	  3.5 	 0.510 	 3 	 0 	 0 	 0.000 
+ 14 	 20 		[EDO]B:503	 4 	 1 	 185 	 f 	B	  x,y,z  	 1_555 	 23 	 9 	 18840 	  108.3 	  3.3 	 0.653 	 3 	 0 	 0 	 0.000 
+ 15 	 21 		[EDO]A:503	 4 	 1 	 185 	 ◊ 	A	  x,y,z  	 1_555 	 16 	 10 	 18833 	  105.3 	  3.1 	 0.461 	 3 	 0 	 0 	 0.000 
+ 16 	 22 		[EDO]B:505	 4 	 1 	 185 	 ◊ 	J	  x,y,z  	 1_555 	 17 	 8 	 8777 	  97.9 	  2.4 	 0.305 	 1 	 0 	 0 	 0.000 
+ 17 	 23 		A	 14 	 3 	 18833 	 ◊ 	B	  -x+1/2,-y+1/2,z-1/2  	 6_554 	 13 	 4 	 18840 	  96.6 	  -1.5 	 0.360 	 0 	 0 	 0 	 0.000 
+ 18 	 24 		[CAP]B:502	 13 	 1 	 480 	 ◊ 	A	  x,y,z  	 1_555 	 11 	 5 	 18833 	  96.5 	  -1.2 	 0.778 	 3 	 0 	 0 	 0.039 
+ 25 		[CAP]A:502	 14 	 1 	 473 	 ◊ 	B	  x,y,z  	 1_555 	 13 	 5 	 18840 	  95.1 	  -0.9 	 0.787 	 3 	 0 	 0 	 0.039 
+Average: 	  95.8 	  -1.1 	 0.782 	 3 	 0 	 0 	 0.039 
+ 19 	 26 		[EDO]I:201	 4 	 1 	 185 	 ◊ 	I	  x,y,z  	 1_555 	 16 	 8 	 8778 	  95.5 	  2.5 	 0.527 	 1 	 0 	 0 	 0.000 
+ 20 	 27 		[EDO]A:510	 4 	 1 	 183 	 ◊ 	A	  x,y,z  	 1_555 	 15 	 4 	 18833 	  86.6 	  2.5 	 0.298 	 2 	 0 	 0 	 0.000 
+ 21 	 28 		B	 14 	 6 	 18840 	 ◊ 	[EDO]A:505	  -y+1,x,z  	 3_655 	 4 	 1 	 182 	  86.2 	  2.2 	 0.284 	 2 	 0 	 0 	 0.000 
+ 22 	 29 		[EDO]A:504	 4 	 1 	 185 	 f 	A	  x,y,z  	 1_555 	 14 	 6 	 18833 	  86.0 	  2.3 	 0.294 	 3 	 0 	 0 	 0.000 
+ 23 	 30 		[EDO]A:508	 4 	 1 	 187 	 f 	A	  x,y,z  	 1_555 	 16 	 6 	 18833 	  80.0 	  1.7 	 0.256 	 1 	 0 	 0 	 0.000 
+ 24 	 31 		[EDO]A:508	 4 	 1 	 187 	 ◊ 	B	  x,y,z  	 1_555 	 13 	 6 	 18840 	  78.9 	  1.9 	 0.256 	 1 	 0 	 0 	 0.000 
+ 25 	 32 		[EDO]A:507	 4 	 1 	 184 	 ◊ 	A	  x,y,z  	 1_555 	 11 	 5 	 18833 	  77.1 	  1.5 	 0.200 	 1 	 0 	 0 	 0.000 
+ 26 	 33 		[EDO]A:507	 4 	 1 	 184 	 f 	B	  x,y,z  	 1_555 	 11 	 6 	 18840 	  74.8 	  1.5 	 0.200 	 1 	 0 	 0 	 0.000 
+ 27 	 34 		[EDO]B:505	 4 	 1 	 185 	 ◊ 	B	  x,y,z  	 1_555 	 10 	 3 	 18840 	  64.0 	  1.8 	 0.295 	 1 	 0 	 0 	 0.000 
+ 28 	 35 		A	 9 	 3 	 18833 	 ◊ 	[EDO]I:202	  -y+1,x,z  	 3_655 	 4 	 1 	 184 	  61.9 	  2.0 	 0.318 	 1 	 0 	 0 	 0.000 
+ 29 	 36 		[EDO]I:201	 4 	 1 	 185 	 ◊ 	A	  x,y,z  	 1_555 	 10 	 3 	 18833 	  60.9 	  1.6 	 0.822 	 1 	 0 	 0 	 0.000 
+ 30 	 37 		[EDO]I:202	 4 	 1 	 184 	 ◊ 	I	  x,y,z  	 1_555 	 16 	 2 	 8778 	  60.7 	  1.3 	 0.451 	 0 	 0 	 0 	 0.000 
+ 31 	 38 		B	 6 	 2 	 18840 	 ◊ 	[EDO]A:504	  -y+1,x,z  	 3_655 	 3 	 1 	 185 	  46.0 	  1.0 	 0.753 	 0 	 0 	 0 	 0.000 
+ 32 	 39 		[EDO]A:505	 3 	 1 	 182 	 f 	A	  x,y,z  	 1_555 	 6 	 2 	 18833 	  46.0 	  0.9 	 0.727 	 0 	 0 	 0 	 0.000 
+ 33 	 40 		[EDO]I:202	 2 	 1 	 184 	 f 	A	  x,y,z  	 1_555 	 9 	 4 	 18833 	  39.8 	  1.1 	 0.605 	 1 	 0 	 0 	 0.000 
+ 34 	 41 		I	 4 	 2 	 8778 	 ◊ 	J	  -x+1/2,-y+1/2,z-1/2  	 6_554 	 6 	 3 	 8777 	  33.7 	  -0.0 	 0.656 	 0 	 0 	 0 	 0.000 
+ 35 	 42 		[EDO]A:503	 3 	 1 	 185 	 f 	B	  x,y,z  	 1_555 	 4 	 2 	 18840 	  31.3 	  0.1 	 0.491 	 0 	 0 	 0 	 0.000 
+ 36 	 43 		[MG]A:501	 1 	 1 	 98 	 f 	A	  x,y,z  	 1_555 	 10 	 7 	 18833 	  30.9 	  -5.0 	 0.000 	 0 	 0 	 0 	 0.139 
+ 44 		[MG]B:501	 1 	 1 	 98 	 f 	B	  x,y,z  	 1_555 	 10 	 7 	 18840 	  30.6 	  -5.0 	 0.000 	 0 	 0 	 0 	 0.139 
+Average: 	  30.8 	  -5.0 	 0.000 	 0 	 0 	 0 	 0.139 
+ 37 	 45 		A	 3 	 1 	 18833 	 ◊ 	J	  -y+1/2,x-1/2,z-1/2  	 7_544 	 2 	 1 	 8777 	  30.1 	  1.5 	 0.899 	 1 	 2 	 0 	 0.000 
+ 38 	 46 		[EDO]B:504	 3 	 1 	 185 	 f 	[EDO]B:503	  x,y,z  	 1_555 	 4 	 1 	 185 	  29.0 	  1.4 	 1.000 	 0 	 0 	 0 	 0.000 
+ 39 	 47 		A	 4 	 2 	 18833 	 ◊ 	[EDO]A:504	  -y+1,x,z  	 3_655 	 2 	 1 	 185 	  28.8 	  1.4 	 0.938 	 0 	 0 	 0 	 0.000 
+ 40 	 48 		[CAP]A:502	 3 	 1 	 473 	 f 	[MG]A:501	  x,y,z  	 1_555 	 1 	 1 	 98 	  28.5 	  -3.4 	 0.000 	 0 	 0 	 0 	 0.094 
+ 49 		[CAP]B:502	 3 	 1 	 480 	 f 	[MG]B:501	  x,y,z  	 1_555 	 1 	 1 	 98 	  28.2 	  -3.4 	 0.000 	 0 	 0 	 0 	 0.094 
+Average: 	  28.3 	  -3.4 	 0.000 	 0 	 0 	 0 	 0.094 
+ 41 	 50 		[EDO]A:509	 2 	 1 	 185 	 f 	[EDO]A:506	  x,y,z  	 1_555 	 4 	 1 	 183 	  27.3 	  1.3 	 1.000 	 0 	 0 	 0 	 0.000 
+ 42 	 51 		A	 4 	 1 	 18833 	 ◊ 	J	  -x+1/2,-y+1/2,z-1/2  	 6_554 	 3 	 1 	 8777 	  25.4 	  0.0 	 0.624 	 0 	 0 	 0 	 0.000 
+ 43 	 52 		[EDO]A:505	 2 	 1 	 182 	 ◊ 	B	  x,y,z  	 1_555 	 3 	 2 	 18840 	  25.1 	  1.2 	 0.943 	 0 	 0 	 0 	 0.000 
+ 44 	 53 		B	 3 	 1 	 18840 	 ◊ 	B	  -x+1,-y,z  	 2_655 	 3 	 1 	 18840 	  16.5 	  0.4 	 0.799 	 0 	 0 	 0 	 0.000 
+ 45 	 54 		[MG]B:501	 1 	 1 	 98 	 ◊ 	A	  x,y,z  	 1_555 	 1 	 1 	 18833 	  11.9 	  -1.0 	 0.000 	 0 	 0 	 0 	 0.015 
+ 55 		[MG]A:501	 1 	 1 	 98 	 ◊ 	B	  x,y,z  	 1_555 	 1 	 1 	 18840 	  11.5 	  -0.9 	 0.000 	 0 	 0 	 0 	 0.015 
+Average: 	  11.7 	  -0.9 	 0.000 	 0 	 0 	 0 	 0.015 
+ 46 	 56 		A	 2 	 2 	 18833 	 ◊ 	[EDO]A:510	  -y+1,x,z  	 3_655 	 2 	 1 	 183 	  11.7 	  0.6 	 0.958 	 0 	 0 	 0 	 0.000 
+ 47 	 57 		J	 1 	 1 	 8777 	 ◊ 	A	  x,y,z  	 1_555 	 2 	 1 	 18833 	  11.5 	  -0.4 	 0.282 	 0 	 0 	 0 	 0.004 
+ 58 		I	 1 	 1 	 8778 	 ◊ 	B	  x,y,z  	 1_555 	 2 	 1 	 18840 	  9.5 	  -0.3 	 0.318 	 0 	 0 	 0 	 0.004 
+Average: 	  10.5 	  -0.3 	 0.300 	 0 	 0 	 0 	 0.004 
+ 48 	 59 		[EDO]A:509	 2 	 1 	 185 	 f 	B	  x,y,z  	 1_555 	 4 	 2 	 18840 	  5.8 	  0.0 	 0.736 	 0 	 0 	 0 	 0.000 
+ 49 	 60 		[EDO]B:505	 2 	 1 	 185 	 f 	B	  -y+1,x,z  	 3_655 	 1 	 1 	 18840 	  3.6 	  0.2 	 0.925 	 0 	 0 	 0 	 0.000 
+ 50 	 61 		[EDO]A:510	 1 	 1 	 183 	 f 	[EDO]A:503	  x,y,z  	 1_555 	 2 	 1 	 185 	  2.6 	  0.1 	 1.000 	 0 	 0 	 0 	 0.000 
+ 51 	 62 		A	 1 	 1 	 18833 	 f 	[EDO]I:201	  -y+1,x,z  	 3_655 	 1 	 1 	 185 	  1.8 	  0.1 	 0.904 	 0 	 0 	 0 	 0.000 
+   View    Details    Download Search
+PDBe PISA v1.52 [20/10/2014]
+Protein Data Bank in Europe (PDBe)is a member ofwwPDBEMDataBank
+EMBL European Bioinformatics Institute
+News
+Our impact
+Contact us
+Intranet
+Services
+By topic
+By name (A-Z)
+Help & Support
+Research
+Overview
+Publications
+Research groups
+Postdocs & PhDs
+Training
+Overview
+Train at EBI
+Train outside EBI
+Train online
+Contact organisers
+Industry
+Overview
+Members Area
+Workshops
+SME Forum
+Contact Industry programme
+About us
+Overview
+Leadership
+Funding
+Background
+Collaboration
+Jobs
+People & groups
+News
+Events
+Visit us
+Contact us
+EMBL-EBI, Wellcome Genome Campus, Hinxton, Cambridgeshire, CB10 1SD, UK     +44 (0)1223 49 44 44
+
+Copyright © EMBL-EBI 2020 | EBI is an outstation of the European Molecular Biology Laboratory | Terms of use

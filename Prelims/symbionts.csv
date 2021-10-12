@@ -1,0 +1,11 @@
+Label,Symbiont,SymbiontNCBI,Relative,RelativeNCBI,Refs,Notes
+Nasuia,Nasuia deltocephalinicola,CP013211.1,Herbaspirillum seropedicae,CP002039.1,https://academic.oup.com/gbe/article/5/9/1675/555845,https://academic.oup.com/view-large/figure/89443285/evt118f6p.jpeg
+Sulcia,Sulcia muelleri,CP001981.1,Porphyromonas gingivalis,AE015924.1,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2148300/,Invades cells but can survive in oral cavity
+Tremblaya,Tremblaya phenacola,CP003982.1,Sodalis praecaptivus,CP006569.1,https://www.sciencedirect.com/science/article/pii/S193131281730149X?via%3Dihub,https://pubmed.ncbi.nlm.nih.gov/28914880/#&gid=article-figures&pid=figure-4-uid-3
+Rhopalodia,Rhopalodia gibberula SB ,AP018341.1,Cyanothece sp. PCC 8801,CP001287.1,https://www.nature.com/articles/s41598-017-13578-8#Tab1,
+Hodgkinia,Hodgkinia cicadicola,CP008699,Rhizobium etli,CP007641.1,https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2704378/,
+Pinguicoccus,Pinguicoccus supinus,CP039370.1,Coraliomargarita akajimensis,CP001998.1,https://www.nature.com/articles/s41598-020-76348-z,Not closest sequence – lots of unannotated sequences in putative phylogeny
+Fokinia,Fokinia solitaria,CP025989.1,Pelagibacter ubique ,CP000084.1,https://academic.oup.com/gbe/article/10/4/1120/4961490,All relatives are Rickettsiales – need to go a step over
+Chromatophore,Paulinella chromatophore,CP000815.1,Synechococcus [PCC 7002],CP000951,https://www.nature.com/articles/s41598-019-38621-8,
+Azoamicus,Azoamicus ciliaticola,NZ_LR794158.1,Legionella clemsonensis,NZ_CP016397,https://www.nature.com/articles/s41586-021-03297-6,But legionella is also intracellular. Others? – most of the order’s members are intracellular.
+Azolla,Nostoc azollae,CP002059.1,Raphidiopsis brookii,ACYB01000001.1,https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0011486,

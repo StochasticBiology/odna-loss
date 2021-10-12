@@ -1,0 +1,153 @@
+Skip to main content
+Skip to local navigation
+Skip to EBI global navigation menu
+Skip to expanded EBI global navigation menu (includes all sub-sections)
+EMBL European Bioinformatics Institute
+Services
+Research
+Training
+About us
+Protein Data Bank in Europe Protein Data Bank
+in EuropeBringing Structure to Biology
+PDBePISA
+ Feedback
+ Share
+PISA Interface List.
+
+Session Map help (id=515-P7-KB9)
+Start	Warnings	Interfaces	Interface Search
+ 	Monomers	 
+ 	Assemblies	 
+ Interfaces in PDB 1q90 crystal.
+Space symmetry group: I 2 2 2. Resolution: 3.10 Å
+STRUCTURE OF THE CYTOCHROME B6F (PLASTOHYDROQUINONE : PLASTOCYANIN OXIDOREDUCTASE) FROM CHLAMYDOMONAS REINHARDTII
+Interfaces help   XML    View    Details    Download Search
+ ## 	 Structure 1 	 × 	 Structure 2 	 interface 
+ area, Å2 	 ΔiG 
+ kcal/mol 	 ΔiG 
+ P-value 	 NHB 	 NSB 	 NDS 	 CSS 
+ NN 	 «» 	 Range 	 iNat 	 iNres 	 Surface Å2 	 Range 	 Symmetry op-n 	 Sym.ID 	 iNat 	 iNres 	 Surface Å2 
+ 1 		D	 299 	 75 	 13425 	 ◊ 	B	  x,y,z  	 1_555 	 314 	 79 	 13498 	  2779.7 	  -47.8 	 0.908 	 27 	 2 	 0 	 0.316 
+ 2 		B	 155 	 38 	 13498 	 ◊ 	B	  -x+1,-y+2,z  	 2_675 	 155 	 38 	 13498 	  1488.4 	  -18.2 	 0.972 	 6 	 8 	 0 	 0.093 
+ 3 		D	 113 	 31 	 13425 	 ◊ 	A	  x,y,z  	 1_555 	 110 	 33 	 17228 	  999.6 	  -13.7 	 0.529 	 4 	 5 	 0 	 0.210 
+ 4 		N	 69 	 19 	 2934 	 ◊ 	A	  x,y,z  	 1_555 	 72 	 22 	 17228 	  698.0 	  -14.4 	 0.281 	 4 	 0 	 0 	 0.409 
+ 5 		G	 68 	 18 	 2956 	 ◊ 	B	  x,y,z  	 1_555 	 65 	 20 	 13498 	  618.5 	  -13.7 	 0.483 	 2 	 0 	 0 	 0.138 
+ 6 		R	 59 	 17 	 3800 	 ◊ 	A	  x,y,z  	 1_555 	 66 	 15 	 17228 	  615.6 	  -12.0 	 0.292 	 3 	 0 	 0 	 0.256 
+ 7 		[HEM]A:900	 43 	 1 	 846 	 cf 	A	  x,y,z  	 1_555 	 91 	 32 	 17228 	  608.5 	  -22.1 	 0.595 	 3 	 0 	 0 	 0.591 
+ 8 		G	 69 	 17 	 2956 	 ◊ 	D	  x,y,z  	 1_555 	 67 	 20 	 13425 	  593.3 	  -12.6 	 0.920 	 2 	 0 	 0 	 0.060 
+ 9 		[HEM]B:902	 43 	 1 	 790 	 f 	B	  x,y,z  	 1_555 	 93 	 27 	 13498 	  592.3 	  -23.8 	 0.663 	 2 	 0 	 0 	 0.233 
+ 10 		D	 56 	 17 	 13425 	 ◊ 	C	  x,y,z  	 1_555 	 66 	 19 	 6787 	  572.0 	  -8.7 	 0.493 	 4 	 0 	 0 	 0.040 
+ 11 		[CLA]D:910	 53 	 1 	 1323 	 f 	D	  x,y,z  	 1_555 	 62 	 22 	 13425 	  545.8 	  -9.9 	 0.665 	 0 	 0 	 0 	 0.129 
+ 12 		[HEM]B:901	 43 	 1 	 819 	 f 	B	  x,y,z  	 1_555 	 77 	 28 	 13498 	  544.6 	  -20.8 	 0.723 	 6 	 0 	 0 	 0.222 
+ 13 		[LMG]D:953	 46 	 1 	 1369 	 ◊ 	D	  x,y,z  	 1_555 	 58 	 19 	 13425 	  465.5 	  -6.7 	 0.744 	 1 	 0 	 0 	 0.032 
+ 14 		D	 54 	 15 	 13425 	 ◊ 	A	  -x+1,y,-z+1  	 3_656 	 40 	 8 	 17228 	  456.4 	  -5.8 	 0.543 	 3 	 0 	 0 	 0.023 
+ 15 		[CLA]D:910	 30 	 1 	 1323 	 ◊ 	B	  x,y,z  	 1_555 	 49 	 21 	 13498 	  451.2 	  -9.6 	 0.403 	 0 	 0 	 0 	 0.050 
+ 16 		N	 58 	 12 	 2934 	 ◊ 	M	  x,y,z  	 1_555 	 55 	 13 	 3176 	  437.2 	  -11.2 	 0.816 	 3 	 0 	 0 	 0.305 
+ 17 		R	 43 	 8 	 3800 	 ◊ 	B	  x,y,z  	 1_555 	 51 	 15 	 13498 	  436.8 	  -8.3 	 0.788 	 5 	 0 	 0 	 0.035 
+ 18 		N	 45 	 13 	 2934 	 ◊ 	L	  x,y,z  	 1_555 	 49 	 12 	 2978 	  419.2 	  -10.5 	 0.809 	 1 	 0 	 0 	 0.266 
+ 19 		[HEM]B:903	 38 	 1 	 818 	 cf 	B	  x,y,z  	 1_555 	 62 	 19 	 13498 	  409.9 	  -15.1 	 0.864 	 2 	 0 	 0 	 0.150 
+ 20 		N	 46 	 11 	 2934 	 ◊ 	D	  x,y,z  	 1_555 	 33 	 11 	 13425 	  344.5 	  -9.1 	 0.192 	 1 	 2 	 0 	 0.127 
+ 21 		M	 32 	 9 	 3176 	 ◊ 	G	  x,y,z  	 1_555 	 42 	 11 	 2956 	  332.7 	  -9.1 	 0.741 	 0 	 0 	 0 	 0.324 
+ 22 		L	 35 	 10 	 2978 	 ◊ 	A	  x,y,z  	 1_555 	 31 	 10 	 17228 	  325.8 	  -6.9 	 0.277 	 2 	 0 	 0 	 0.075 
+ 23 		M	 32 	 9 	 3176 	 ◊ 	L	  x,y,z  	 1_555 	 24 	 9 	 2978 	  312.9 	  -8.2 	 0.642 	 0 	 0 	 0 	 0.531 
+ 24 		[LMG]D:953	 30 	 1 	 1369 	 f 	G	  x,y,z  	 1_555 	 33 	 9 	 2956 	  307.0 	  -9.1 	 0.454 	 0 	 0 	 0 	 0.324 
+ 25 		A	 32 	 11 	 17228 	 x 	A	  x-1/2,-y+3/2,-z+1/2  	 8_465 	 32 	 8 	 17228 	  296.8 	  -3.1 	 0.471 	 2 	 0 	 0 	 0.000 
+ 26 		[TDS]D:920	 29 	 1 	 791 	 f 	B	  x,y,z  	 1_555 	 31 	 12 	 13498 	  280.3 	  -7.9 	 0.471 	 0 	 0 	 0 	 0.074 
+ 27 		[TDS]D:920	 22 	 1 	 791 	 ◊ 	D	  x,y,z  	 1_555 	 30 	 9 	 13425 	  247.9 	  -6.2 	 0.785 	 1 	 0 	 0 	 0.035 
+ 28 		[LMG]L:951	 30 	 1 	 1039 	 ◊ 	N	  x,y,z  	 1_555 	 31 	 8 	 2934 	  228.5 	  -2.3 	 0.627 	 0 	 0 	 0 	 0.056 
+ 29 		[LMG]L:951	 23 	 1 	 1039 	 f 	M	  x,y,z  	 1_555 	 21 	 8 	 3176 	  216.7 	  -5.4 	 0.331 	 0 	 0 	 0 	 0.353 
+ 30 		C	 25 	 10 	 6787 	 ◊ 	B	  x,y,z  	 1_555 	 25 	 8 	 13498 	  209.5 	  -4.0 	 0.267 	 1 	 0 	 0 	 0.017 
+ 31 		[SQD]R:950	 18 	 1 	 758 	 ◊ 	R	  x,y,z  	 1_555 	 25 	 7 	 3800 	  201.6 	  -0.6 	 0.424 	 1 	 0 	 0 	 0.011 
+ 32 		[HEM]B:903	 27 	 1 	 818 	 ◊ 	D	  x,y,z  	 1_555 	 22 	 6 	 13425 	  201.5 	  -7.7 	 0.729 	 0 	 0 	 0 	 0.040 
+ 33 		[LFA]B:960	 18 	 1 	 641 	 ◊ 	B	  x,y,z  	 1_555 	 21 	 8 	 13498 	  198.1 	  -2.6 	 0.104 	 0 	 0 	 0 	 0.009 
+ 34 		[SQD]R:950	 22 	 1 	 758 	 f 	D	  x,y,z  	 1_555 	 19 	 6 	 13425 	  192.0 	  -0.1 	 0.470 	 2 	 0 	 0 	 0.013 
+ 35 		L	 20 	 5 	 2978 	 ◊ 	R	  x,y,z  	 1_555 	 20 	 7 	 3800 	  191.4 	  -3.7 	 0.794 	 0 	 0 	 0 	 0.035 
+ 36 		N	 18 	 6 	 2934 	 ◊ 	B	  x,y,z  	 1_555 	 24 	 8 	 13498 	  177.5 	  -3.0 	 0.658 	 2 	 0 	 0 	 0.015 
+ 37 		B	 21 	 5 	 13498 	 ◊ 	A	  x,y,z  	 1_555 	 20 	 7 	 17228 	  175.5 	  -1.9 	 0.677 	 0 	 0 	 0 	 0.008 
+ 38 		[BCR]B:904	 19 	 1 	 735 	 f 	B	  x,y,z  	 1_555 	 17 	 7 	 13498 	  172.3 	  -3.9 	 0.181 	 0 	 0 	 0 	 0.037 
+ 39 		R	 15 	 5 	 3800 	 ◊ 	B	  -x+1,-y+2,z  	 2_675 	 17 	 6 	 13498 	  166.6 	  -2.4 	 0.701 	 2 	 0 	 0 	 0.009 
+ 40 		[LMG]D:953	 19 	 1 	 1369 	 ◊ 	M	  x,y,z  	 1_555 	 15 	 5 	 3176 	  154.0 	  -0.7 	 0.727 	 0 	 0 	 0 	 0.025 
+ 41 		[BCR]B:904	 14 	 1 	 735 	 ◊ 	G	  x,y,z  	 1_555 	 15 	 6 	 2956 	  151.1 	  -2.5 	 0.553 	 0 	 0 	 0 	 0.024 
+ 42 		[LFA]B:960	 12 	 1 	 641 	 f 	R	  x,y,z  	 1_555 	 15 	 4 	 3800 	  135.8 	  -2.7 	 0.167 	 0 	 0 	 0 	 0.100 
+ 43 		D	 16 	 5 	 13425 	 ◊ 	D	  -x+1,y,-z+1  	 3_656 	 16 	 5 	 13425 	  131.0 	  -0.6 	 0.911 	 0 	 0 	 0 	 0.001 
+ 44 		[LFA]B:960	 11 	 1 	 641 	 ◊ 	A	  x,y,z  	 1_555 	 23 	 6 	 17228 	  130.6 	  3.4 	 0.497 	 0 	 0 	 0 	 0.000 
+ 45 		[BCR]B:904	 17 	 1 	 735 	 ◊ 	N	  x,y,z  	 1_555 	 16 	 5 	 2934 	  124.9 	  -0.9 	 0.594 	 0 	 0 	 0 	 0.003 
+ 46 		[SQD]R:950	 11 	 1 	 758 	 ◊ 	A	  x,y,z  	 1_555 	 14 	 6 	 17228 	  124.4 	  -0.3 	 0.324 	 1 	 0 	 0 	 0.010 
+ 47 		[LMG]L:951	 12 	 1 	 1039 	 ◊ 	L	  x,y,z  	 1_555 	 18 	 4 	 2978 	  122.2 	  -0.9 	 0.736 	 2 	 0 	 0 	 0.115 
+ 48 		[LFA]B:960	 10 	 1 	 641 	 ◊ 	D	  x,y,z  	 1_555 	 14 	 4 	 13425 	  115.4 	  0.2 	 0.369 	 0 	 0 	 0 	 0.000 
+ 49 		[LMG]L:951	 11 	 1 	 1039 	 ◊ 	D	  x,y,z  	 1_555 	 12 	 5 	 13425 	  111.0 	  -1.4 	 0.407 	 0 	 0 	 0 	 0.012 
+ 50 		B	 12 	 3 	 13498 	 ◊ 	A	  -x+1,y,-z+1  	 3_656 	 16 	 4 	 17228 	  110.9 	  -1.7 	 0.489 	 1 	 0 	 0 	 0.007 
+ 51 		[FES]C:210	 4 	 1 	 237 	 f 	C	  x,y,z  	 1_555 	 11 	 9 	 6787 	  109.8 	  -15.0 	 0.685 	 5 	 0 	 0 	 0.100 
+ 52 		R	 9 	 6 	 3800 	 ◊ 	D	  x,y,z  	 1_555 	 9 	 4 	 13425 	  107.3 	  -2.9 	 0.365 	 0 	 0 	 0 	 0.031 
+ 53 		[LMG]D:953	 9 	 1 	 1369 	 ◊ 	[CLA]D:910	  x,y,z  	 1_555 	 23 	 1 	 1323 	  104.4 	  -1.0 	 0.717 	 0 	 0 	 0 	 0.004 
+ 54 		[TDS]D:920	 11 	 1 	 791 	 ◊ 	[CLA]D:910	  x,y,z  	 1_555 	 12 	 1 	 1323 	  104.2 	  -0.9 	 0.892 	 0 	 0 	 0 	 0.004 
+ 55 		C	 13 	 7 	 6787 	 ◊ 	A	  x,y,z  	 1_555 	 15 	 7 	 17228 	  99.6 	  -1.3 	 0.431 	 0 	 0 	 0 	 0.004 
+ 56 		[LMG]L:951	 12 	 1 	 1039 	 ◊ 	G	  x,y,z  	 1_555 	 7 	 3 	 2956 	  95.2 	  -3.7 	 0.209 	 0 	 0 	 0 	 0.133 
+ 57 		[BCR]B:904	 13 	 1 	 735 	 ◊ 	M	  x,y,z  	 1_555 	 6 	 3 	 3176 	  91.1 	  -2.4 	 0.300 	 0 	 0 	 0 	 0.007 
+ 58 		D	 9 	 3 	 13425 	 ◊ 	B	  -x+1,-y+2,z  	 2_675 	 10 	 4 	 13498 	  89.0 	  -1.0 	 0.731 	 0 	 1 	 0 	 0.006 
+ 59 		[LMG]L:951	 7 	 1 	 1039 	 ◊ 	B	  x,y,z  	 1_555 	 10 	 5 	 13498 	  83.4 	  -1.3 	 0.255 	 0 	 0 	 0 	 0.003 
+ 60 		[BCR]B:904	 7 	 1 	 735 	 ◊ 	D	  x,y,z  	 1_555 	 14 	 5 	 13425 	  80.6 	  -0.0 	 0.674 	 0 	 0 	 0 	 0.000 
+ 61 		[HEM]B:903	 22 	 1 	 818 	 f 	[HEM]B:901	  x,y,z  	 1_555 	 7 	 1 	 819 	  79.9 	  -3.4 	 0.899 	 0 	 0 	 0 	 0.032 
+ 62 		N	 8 	 3 	 2934 	 ◊ 	G	  x,y,z  	 1_555 	 5 	 3 	 2956 	  65.8 	  -1.7 	 0.436 	 0 	 0 	 0 	 0.006 
+ 63 		[TDS]D:920	 7 	 1 	 791 	 ◊ 	C	  x,y,z  	 1_555 	 9 	 4 	 6787 	  65.2 	  -0.6 	 0.840 	 2 	 0 	 0 	 0.006 
+ 64 		M	 5 	 3 	 3176 	 ◊ 	A	  x,y,z  	 1_555 	 6 	 2 	 17228 	  56.0 	  0.4 	 0.838 	 0 	 1 	 0 	 0.000 
+ 65 		[HEM]B:903	 3 	 1 	 818 	 ◊ 	N	  x,y,z  	 1_555 	 8 	 3 	 2934 	  55.4 	  -0.7 	 0.720 	 0 	 0 	 0 	 0.003 
+ 66 		G	 7 	 3 	 2956 	 ◊ 	A	  x,y,z  	 1_555 	 8 	 3 	 17228 	  52.0 	  -0.8 	 0.660 	 0 	 0 	 0 	 0.003 
+ 67 		[LMG]D:953	 6 	 1 	 1369 	 ◊ 	B	  x,y,z  	 1_555 	 4 	 2 	 13498 	  46.1 	  -0.4 	 0.383 	 0 	 0 	 0 	 0.004 
+ 68 		[LMG]L:951	 6 	 1 	 1039 	 ◊ 	[BCR]B:904	  x,y,z  	 1_555 	 4 	 1 	 735 	  45.8 	  -0.1 	 0.494 	 0 	 0 	 0 	 0.000 
+ 69 		[LMG]L:951	 6 	 1 	 1039 	 ◊ 	A	  x,y,z  	 1_555 	 5 	 1 	 17228 	  42.3 	  -0.2 	 0.354 	 0 	 0 	 0 	 0.002 
+ 70 		[HEM]B:902	 3 	 1 	 790 	 ◊ 	B	  -x+1,-y+2,z  	 2_675 	 6 	 1 	 13498 	  40.3 	  -1.3 	 0.579 	 0 	 0 	 0 	 0.011 
+ 71 		D	 3 	 1 	 13425 	 ◊ 	B	  -x+1,y,-z+1  	 3_656 	 3 	 1 	 13498 	  29.5 	  -0.1 	 0.705 	 0 	 0 	 0 	 0.000 
+ 72 		[HEM]B:901	 2 	 1 	 819 	 ◊ 	D	  x,y,z  	 1_555 	 2 	 1 	 13425 	  20.1 	  -0.6 	 0.515 	 0 	 0 	 0 	 0.003 
+ 73 		M	 2 	 1 	 3176 	 ◊ 	B	  x,y,z  	 1_555 	 3 	 2 	 13498 	  18.4 	  -0.6 	 0.453 	 0 	 0 	 0 	 0.002 
+ 74 		[FES]C:210	 2 	 1 	 237 	 ◊ 	B	  x,y,z  	 1_555 	 3 	 1 	 13498 	  15.6 	  -1.2 	 0.000 	 0 	 0 	 0 	 0.005 
+ 75 		M	 2 	 2 	 3176 	 ◊ 	D	  x,y,z  	 1_555 	 4 	 2 	 13425 	  8.4 	  -0.3 	 0.673 	 0 	 0 	 0 	 0.002 
+ 76 		[HEM]B:902	 2 	 1 	 790 	 ◊ 	D	  x,y,z  	 1_555 	 1 	 1 	 13425 	  7.6 	  -0.5 	 0.515 	 0 	 0 	 0 	 0.003 
+ 77 		[CLA]D:910	 2 	 1 	 1323 	 ◊ 	[HEM]B:901	  x,y,z  	 1_555 	 1 	 1 	 819 	  4.8 	  -0.3 	 0.640 	 0 	 0 	 0 	 0.002 
+ 78 		[TDS]D:920	 1 	 1 	 791 	 ◊ 	[FES]C:210	  x,y,z  	 1_555 	 1 	 1 	 237 	  2.7 	  -0.3 	 0.000 	 0 	 0 	 0 	 0.001 
+ 79 		[BCR]B:904	 2 	 1 	 735 	 f 	[HEM]B:903	  x,y,z  	 1_555 	 1 	 1 	 818 	  2.6 	  -0.1 	 0.725 	 0 	 0 	 0 	 0.000 
+ 80 		[BCR]B:904	 1 	 1 	 735 	 ◊ 	A	  x,y,z  	 1_555 	 1 	 1 	 17228 	  1.3 	  0.1 	 0.672 	 0 	 0 	 0 	 0.000 
+   View    Details    Download Search
+PDBe PISA v1.52 [20/10/2014]
+Protein Data Bank in Europe (PDBe)is a member ofwwPDBEMDataBank
+EMBL European Bioinformatics Institute
+News
+Our impact
+Contact us
+Intranet
+Services
+By topic
+By name (A-Z)
+Help & Support
+Research
+Overview
+Publications
+Research groups
+Postdocs & PhDs
+Training
+Overview
+Train at EBI
+Train outside EBI
+Train online
+Contact organisers
+Industry
+Overview
+Members Area
+Workshops
+SME Forum
+Contact Industry programme
+About us
+Overview
+Leadership
+Funding
+Background
+Collaboration
+Jobs
+People & groups
+News
+Events
+Visit us
+Contact us
+EMBL-EBI, Wellcome Genome Campus, Hinxton, Cambridgeshire, CB10 1SD, UK     +44 (0)1223 49 44 44
+
+Copyright © EMBL-EBI 2020 | EBI is an outstation of the European Molecular Biology Laboratory | Terms of use
