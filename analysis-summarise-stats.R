@@ -40,9 +40,13 @@ message("Loading data...")
 mt = read.csv(mt.stats.file, header=T, stringsAsFactor=F)
 pt = read.csv(pt.stats.file, header=T, stringsAsFactor=F)
 
-sample.set.1 = c("homo sapiens", "reclinomonas americana", "arabidopsis thaliana", "plasmodium falciparum", "saccharomyces cerevisiae", "chondrus crispus")
+# implementation note -- galaxaura rugosa has been included rather than chondrus crispus here because, as of Oct 2021, the latter seems to be absent from the NCBI PT dataset
 
-sample.set.2 = c("chondrus crispus", "reclinomonas americana")
+#sample.set.1 = c("homo sapiens", "reclinomonas americana", "arabidopsis thaliana", "plasmodium falciparum", "saccharomyces cerevisiae", "chondrus crispus")
+sample.set.1 = c("homo sapiens", "reclinomonas americana", "arabidopsis thaliana", "plasmodium falciparum", "saccharomyces cerevisiae", "galaxaura rugosa")
+
+#sample.set.2 = c("chondrus crispus", "reclinomonas americana")
+sample.set.2 = c("galaxaura rugosa", "reclinomonas americana")
 for(j in c(3,4)) {
   tree.file = args[j]
   treeString = tolower(paste(readLines(tree.file), collapse=""))
