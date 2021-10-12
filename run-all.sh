@@ -78,6 +78,7 @@ echo "Command string is $commandstr"
 [ ! -d "Downloads/" ] && mkdir Downloads/
 
 if [[ $commandstr == *installrpackages* ]]; then
+    echo "Installing packages..."
     R -e "install.packages(c(\"ape\", \"arm\", \"blme\", \"caper\", \"cowplot\", \"e1071\", \"geiger\", \"GGally\", \"ggnewscale\", \"ggplot2\", \"ggpubr\", \"ggpval\", \"ggrepel\", \"glmnet\", \"gridExtra\", \"hexbin\", \"igraph\", \"lme4\", \"logistf\", \"mombf\", \"nlme\", \"phangorn\", \"phytools\", \"randomForest\", \"stringdist\", \"stringr\", \"tree\"))"
     R -e "if (!requireNamespace(\"BiocManager\", quietly = TRUE)) { install.packages(\"BiocManager\") } ; BiocManager::install(\"ggtree\") ; BiocManager::install(\"ggtreeExtra\")"
 fi
@@ -85,6 +86,7 @@ fi
 ################
 ### organelle genome section
 if [[ $commandstr == *downloadorganelles* ]]; then
+    echo "Downloading records..."
     # download, extract and concatenate gbff files
     # the download may take several minutes
     # the followup should take a few seconds (as of summer 2020 this is unzipping and concatenating maybe 700MB of data)
@@ -95,6 +97,7 @@ if [[ $commandstr == *downloadorganelles* ]]; then
     wget ftp://ftp.ncbi.nlm.nih.gov/refseq/release/plastid/plastid.2.genomic.gbff.gz
     wget ftp://ftp.ncbi.nlm.nih.gov/refseq/release/plastid/plastid.3.genomic.gbff.gz
 
+    echo "Unzipping records..."
     gunzip *gz
     cat mitochondrion*gbff > mito.genomic.gbff
     cat plastid*gbff > plastid.genomic.gbff
@@ -106,6 +109,7 @@ if [[ $commandstr == *processorganelles* ]]; then
     # the header line for each entry in these files contains the set of gene statistics for use later
     # this should take maybe half an hour
     # this calls a Python script which uses BioPython
+    echo "Processing records..."
     python3 get-stats-gb.py Downloads/mito.genomic.gbff Data/mt Prelims/stats-codon.csv Prelims/stats-residue.csv > Outputs/mt-process.txt
     python3 get-stats-gb.py Downloads/plastid.genomic.gbff Data/pt Prelims/stats-codon.csv Prelims/stats-residue.csv > Outputs/pt-process.txt
     python3 get-raw-counts.py Data/mt-dna.fasta Data/mt-gene-raw-occurrence.csv
@@ -113,6 +117,7 @@ if [[ $commandstr == *processorganelles* ]]; then
 fi
 
 if [[ $commandstr == *fullblast* ]]; then
+    echo "Performing full BLAST..."
     # BLAST these nucleotide files to get labelling clusters
     # this takes some time, even using multiple cores (default 6, set with -num_threads). MT set perhaps a day, PT set perhaps several. Output files are 30gb MT and 91gb PT. 
     # a good bit of free memory (several GB) is also required
@@ -124,6 +129,7 @@ if [[ $commandstr == *fullblast* ]]; then
 fi
 
 if [[ $commandstr == *blastdictionary* ]]; then
+    echo "Labelling full BLAST output..."
     # process BLAST output to create replacement label list
     # this code takes two parameters. the first is a threshold applied to a score based on BLAST statistics, determining what is a "good hit" (0.333 is perfect)
     # the second is an "intersection" parameter. briefly, if a proportion x of appearances of gene1 occur as a "good hit" with gene2, treat them as identical
@@ -133,6 +139,7 @@ if [[ $commandstr == *blastdictionary* ]]; then
 fi
 
 if [[ $commandstr == *manuallabel* ]]; then
+    echo "Assigning manual labels..."
     # label individual gene data and produce species barcodes
     # using manual replacement list
     # 10 is a threshold for inclusion (a gene must be present in >=10 species): a parameter of the pipeline
@@ -141,6 +148,7 @@ if [[ $commandstr == *manuallabel* ]]; then
 fi
 
 if [[ $commandstr == *blastlabel* ]]; then
+    echo "Assigning BLAST labels..."
     # as above, using BLAST-derived replacement list
     # some cleaning from the MT BLAST output goes on here. the seds replace "nd", the most common form for some "nad" genes, with "nad". the Python script ignores gene labels containing "-i" or "oi" -- some rare-ish isoforms have these.
     python3 process-labels.py 10 Data/mt-dna.fasta Data/mt-blast-replace.csv Data/mt-stats-blast.csv Data/mt-barcodes-blast.csv Data/mt-species-blast.txt Data/mt-gene-occurrence-blast.csv
@@ -156,6 +164,7 @@ fi
 # if this step isn't taken, preconstructed trees will be used
 
 if [[ $commandstr == *processtreesmanual* ]]; then
+    echo "Processing trees with manual data..."
     # embed species barcodes on taxonomy, and thus compute transitions between barcodes for use in evolutionary inference
     if [ -f Downloads/mt-tree-manual.phy ]; then
 	python3 tree-parse.py Data/mt-barcodes-manual.csv Downloads/mt-tree-manual.phy Data/mt-trans-manual.csv Data/mt-sisters-manual.csv > Outputs/mt-manual-out.txt 
@@ -172,11 +181,13 @@ if [[ $commandstr == *processtreesmanual* ]]; then
 fi	   
 
 if [[ $commandstr == *processtreesblast* ]]; then
+    echo "Processing trees with BLAST data..."
     python3 tree-parse.py Data/mt-barcodes-blast.csv Prelims/mt-tree-manual.phy Data/mt-trans-blast.csv Data/mt-sisters-blast.csv > Outputs/mt-blast-out.txt
     python3 tree-parse.py Data/pt-barcodes-blast.csv Prelims/pt-tree-manual.phy Data/pt-trans-blast.csv Data/pt-sisters-blast.csv > Outputs/pt-blast-out.txt
 fi
 
 if [[ $commandstr == *getindicessimple* ]]; then
+    echo "Computing retention indices..."
     Rscript --vanilla get-indices-transitions.R 0 Data/mt-trans-manual.csv Data/mt-simple-manual-indices.csv
     Rscript --vanilla get-indices-transitions.R 0 Data/pt-trans-manual.csv Data/pt-simple-manual-indices.csv
     # indices not computed for BLAST stats here because of the tight correlation between BLAST and manual protocols
@@ -188,13 +199,11 @@ if [[ $commandstr == *getindicessimple* ]]; then
     Rscript --vanilla get-indices-barcodes.R Data/pt-barcodes-manual.csv Data/pt-barcode-manual-indices.csv
 fi
 
- 
-# now do inference
-
 ################
 ### whole genome section
 
 if [[ $commandstr == *downloadgenomes* ]]; then
+    echo "Downloading genome records..."
     python3 get-records.py Prelims/eukaryotes.csv ./download.sh
     # now execute these Entrez calls to get the data
     chmod +x ./download.sh
@@ -202,6 +211,7 @@ if [[ $commandstr == *downloadgenomes* ]]; then
 fi
 
 if [[ $commandstr == *parsegenomes* ]]; then
+    echo "Parsing genome records..."
     echo Species,Compartment,GeneLabel,Length,Hydro,Hydro_i,MolWeight,pKa1,pKa2,A_Glu,CW,GC,Uni1,Uni2,Robust,GC12,GC3 > Data/all-stats.csv
     echo > Data/all-refs.txt
     # parse the resulting datafiles to extract quantitative data
@@ -215,6 +225,7 @@ fi
 ### protein complex section
 
 if [[ $commandstr == *complexes* ]]; then
+    echo "Processing complex records..."
     COMPLEXES=('1oco' '2h88' '5iu0' '5mlc' '5xte' '6fkf' '1q90' '2wsc' '5mdx' '5o31' '6cp3')
     # respectively CIV, CII, rubisco, chlororibo, CIII, chloro-atp, cb6f, PSI, PSII, CI, CV
     
@@ -229,6 +240,7 @@ if [[ $commandstr == *complexes* ]]; then
 fi
 
 if [[ $commandstr == *otherorganelles* ]]; then
+    echo "Downloading symbiont records..."
     python3 get-pairs.py Prelims/symbionts.csv ./download-pairs.sh
     ./download-pairs.sh
 
@@ -249,6 +261,7 @@ fi
 ### analysis and plotting code
 
 if [[ $commandstr == *indexregression* ]]; then
+    echo "Analysing -- index regression..."
     # first produce summaries of gene statistics according to different sampling protocols
     Rscript analysis-summarise-stats.R Data/mt-stats-manual.csv Data/pt-stats-manual.csv Prelims/mt-tree-manual.phy Prelims/pt-tree-manual.phy Data/mt-stats-means-manual.csv Data/pt-stats-means-manual.csv Plots/average-stats.png
 
@@ -268,10 +281,12 @@ if [[ $commandstr == *indexregression* ]]; then
 fi
 
 if [[ $commandstr == *datavisualisation* ]]; then
+    echo "Analysing -- data visualisation..."
     Rscript analysis-data-visualisation.R Data/mt-barcodes-manual.csv Prelims/mt-tree-manual.phy Data/mt-stats-means-manual.csv Data/mt-simple-manual-indices.csv Data/pt-barcodes-manual.csv Prelims/pt-tree-manual.phy Data/pt-stats-means-manual.csv Data/pt-simple-manual-indices.csv Plots/
 fi
 
 if [[ $commandstr == *bindingenergy* ]]; then
+    echo "Analysing -- complex energies..."
     # the final parameter here is a threshold for occurrences, used when we binarise genes into "highly" vs "not highly" retained in oDNA
     Rscript analysis-complexes.R Data/complex-data.csv Data/mt-gene-occurrence-manual.csv Data/pt-gene-occurrence-manual.csv Prelims/label-aliases.csv Prelims/complex-labels.csv Plots/ Data/ 1000
     Rscript analysis-complexes.R Data/complex-data.csv Data/mt-gene-occurrence-manual.csv Data/pt-gene-occurrence-manual.csv Prelims/label-aliases.csv Prelims/complex-labels.csv Plots/ Data/ 0
@@ -280,16 +295,19 @@ if [[ $commandstr == *bindingenergy* ]]; then
 fi
 
 if [[ $commandstr == *nuclearvsorganelle* ]]; then
+    echo "Analysing -- encoding compartment..."
     Rscript analysis-nuc-org-glm.R Data/mt-stats-manual.csv Data/pt-stats-manual.csv Data/all-stats.csv manual Data/ Plots/ 0.5 10
     Rscript analysis-nuc-org-alt.R Data/mt-stats-manual.csv Data/pt-stats-manual.csv Data/all-stats.csv manual Data/ Plots/ 0.5 10
     Rscript analysis-phylo-plot.R Prelims/whole-genome-species.phy Data/all-stats.csv Data/mt-stats-manual.csv Data/pt-stats-manual.csv Plots/phy-plot
 fi
 
 if [[ $commandstr == *otherorganellepredictors* ]]; then
+    echo "Analysing -- other symbionts..."
     Rscript analysis-other-symbionts.R Data/symbiont-all-stats.csv Plots/
 fi
 
 if [[ $commandstr == *supportingstatistics* ]]; then
+    echo "Analysing -- supporting statistics..."
     # correlations between genetic features
     python3 features-corr.py
     R CMD BATCH analysis-feature-corr.R
@@ -303,6 +321,7 @@ fi
 ##############
 ### manuscript preparation
 if [[ $commandstr == *latextable* ]]; then
+    echo "Reformatting tables..."
     # these just convert text output from R into LaTeX-formatted tables
     ./latex-table.sh Data/model-sel-simple-bayeslm-stats.csv > Data/latex-modelsel-simple.tex
     ./latex-table.sh Data/model-sel-barcode-bayeslm-stats.csv > Data/latex-modelsel-barcode.tex
