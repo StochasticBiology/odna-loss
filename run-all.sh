@@ -12,7 +12,7 @@
 # installrpackages      -- install the R libraries required
 
 ## Data curation and production
-# downloadorganelles    -- download organelle genome data
+# downloadorganelles*   -- download organelle genome data
 # processorganelles*    -- process downloaded organelle genome data to get statistics
 # fullblast             -- BLAST all-vs-all organelle gene records
 # blastdictionary       -- construct a label replacement dictionary from BLAST analysis
@@ -21,7 +21,7 @@
 # processtreesmanual*^  -- process taxonomy trees for manual case
 # processtreesblast     -- process taxonomy trees for BLAST case
 # getindicessimple*     -- use simple barcode analysis to estimate retention indices
-# downloadgenomes       -- download whole genome data
+# downloadgenomes*      -- download whole genome data
 # parsegenomes*         -- parse downloaded whole genome data
 # complexes*%           -- analyse energetics of organelle protein complexes
 
@@ -31,7 +31,7 @@
 # bindingenergy*             -- relationship between binding energy and retention
 # nuclearvsorganelle*        -- nuclear/organelle comparison
 # otherorganellepredictors*  -- analysis for other organelles
-# supportingstatistics       -- correlations, checks, etc
+# supportingstatistics*      -- correlations, checks, etc
 
 ## Manuscript
 # latextable             -- convert tabular output to LaTeX form
@@ -60,7 +60,7 @@ fi
 commandstr=$1
 
 if [[ $commandstr == *default* ]]; then
-    commandstr="downloadorganelles,processorganelles,manuallabel,processtreesmanual,getindicessimple,downloadgenomes,parsegenomes,complexes,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors"
+    commandstr="downloadorganelles,processorganelles,manuallabel,processtreesmanual,getindicessimple,downloadgenomes,parsegenomes,complexes,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics"
 fi
 
 if [[ $commandstr == *reduced* ]]; then
