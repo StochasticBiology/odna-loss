@@ -17,6 +17,10 @@ The `Prelims/` directory contains some pre-existing scientific data needed for s
 
 The scientific aspects of the pipeline come in two parts: "Data curation and production" and "Statistics". There are also "Housekeeping" and "Manuscript" parts for installing software and manuscript preparation. Each of these parts has several submodules. Each submodule can be invoked by passing its name as part of a command-line argument to `run-all.sh`. 
 
+For example,
+`./run-all.sh downloadorganelles,processorganelles` would run the first two submodules in the "Data curation and production" part.
+`./run-all.sh default` is interpreted as `./run-all.sh downloadorganelles,processorganelles,manuallabel,processtreesmanual,getindicessimple,downloadgenomes,parsegenomes,complexes,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics` and runs the default pipeline without full BLAST analysis.
+
 The options are:
 
 * Housekeeping
