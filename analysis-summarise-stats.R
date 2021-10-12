@@ -68,7 +68,7 @@ for(j in c(3,4)) {
     des = getDescendants(tree, clade.ref)
     leaves = des[des <= n.tips]
     species = sample(leaves, 1)
-    sample.set = c(sample.set.2, all.labels[species])
+    sample.set.2 = c(sample.set.2, all.labels[species])
   }
 }
 sample.set.2 = gsub("_", " ", sample.set.2)
