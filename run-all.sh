@@ -243,6 +243,7 @@ fi
 if [[ $commandstr == *otherorganelles* ]]; then
     echo "Downloading symbiont records..."
     python3 get-pairs.py Prelims/symbionts.csv ./download-pairs.sh
+    chmod +x download-pairs.sh
     ./download-pairs.sh
 
     echo SystemLabel,Partner,GeneLabel,Length,Hydro,Hydro_i,MolWeight,pKa1,pKa2,A_Glu,CW,GC,Uni1,Uni2,Robust,GC12,GC3 > Data/symbiont-all-stats.csv
