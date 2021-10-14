@@ -25,6 +25,7 @@ The options are:
 
 * Housekeeping
     * `installrpackages`      -- install the R libraries required
+    * `installothers`      -- install other software 
 * Data curation and production
     * `downloadorganelles`    -- download organelle genome data
     * `processorganelles`    -- process downloaded organelle genome data to get statistics
