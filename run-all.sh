@@ -10,6 +10,7 @@
 
 ## Housekeeping
 # installrpackages      -- install the R libraries required
+# installothers         -- install other software
 
 ## Data curation and production
 # downloadorganelles*   -- download organelle genome data
@@ -84,6 +85,14 @@ if [[ $commandstr == *installrpackages* ]]; then
     R -e "if (!requireNamespace(\"BiocManager\", quietly = TRUE)) { install.packages(\"BiocManager\") } ; BiocManager::install(\"ggtree\") ; BiocManager::install(\"ggtreeExtra\")"
 fi
 
+if [[ $commandstr == *installothers* ]]; then
+    sudo apt install ncbi-blast+
+    sudo apt install pip3
+    sudo apt install pymol
+    pip3 install ete3
+    pip3 install biopython
+fi
+    
 ################
 ### organelle genome section
 if [[ $commandstr == *downloadorganelles* ]]; then
