@@ -34,7 +34,7 @@ def getstats(mydna, mypro, codondict, residuedict):
         print("Didn't find "+codon+"\n")
         return -999
       record = codondict[codon]
-      for i in range(nrfeatures,nfeatures+1):
+      for i in range(nrfeatures,nfeatures):
           genestats[i] = genestats[i] + record[i-nrfeatures]
 
   return genestats  
