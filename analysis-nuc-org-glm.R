@@ -19,22 +19,7 @@ library(cowplot)
 outputplot = paste(c(args[6], "nuc-org-glm-", args[4], ".png"), collapse="")
 outputtext = paste(c(args[5], "nuc-org-glm-", args[4], ".csv"), collapse="")
 
-# function to normalise selected statistics by gene length
-# some, like molecular weight and production energy, make more sense unnormalised
-lengthNormalise = function(df) {
-  df$Hydro = df$Hydro/df$Length
-  df$Hydro_i = df$Hydro_i/df$Length
-  df$pKa1 = df$pKa1/df$Length
-  df$pKa2 = df$pKa2/df$Length
-  df$pI = df$pI/df$Length
-  df$Uni1 = df$Uni1/df$Length
-  df$Uni2 = df$Uni2/df$Length
-  df$Robust = df$Robust/df$Length
-  df$GC = df$GC/df$Length
-  df$GC12 = df$GC12/df$Length
-  df$GC3 = df$GC3/df$Length
-  return(df)
-}
+source("lengthNormalise.R")
 
 feature.relabel = function(s) {
   s = gsub("Length.x", "Len", s)
