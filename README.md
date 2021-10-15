@@ -19,7 +19,10 @@ The scientific aspects of the pipeline come in two parts: "Data curation and pro
 
 For example,
 `./run-all.sh downloadorganelles,processorganelles` would run the first two submodules in the "Data curation and production" part.
+
 `./run-all.sh default` is interpreted as `./run-all.sh downloadorganelles,processorganelles,manuallabel,processtreesmanual,getindicessimple,downloadgenomes,parsegenomes,complexes,downloadotherorganelles,processotherorganelles,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics` and runs the default pipeline without full BLAST analysis.
+
+`./run-all.sh reprocess` is interpreted as `./run-all.sh processorganelles,manuallabel,processtreesmanual,getindicessimple,parsegenomes,complexes,processotherorganelles,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics` and re-runs the default analysis pipeline without full BLAST analysis on pre-downloaded data.
 
 The options are:
 
