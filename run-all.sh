@@ -66,6 +66,10 @@ if [[ $commandstr == *default* ]]; then
     commandstr="downloadorganelles,processorganelles,manuallabel,processtreesmanual,getindicessimple,downloadgenomes,parsegenomes,complexes,downloadotherorganelles,processotherorganelles,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics"
 fi
 
+if [[ $commandstr == *reprocess* ]]; then
+    commandstr="processorganelles,manuallabel,processtreesmanual,getindicessimple,parsegenomes,complexes,processotherorganelles,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics"
+fi
+
 if [[ $commandstr == *reduced* ]]; then
     commandstr="processorganelles,manuallabel,processtreesmanual,getindicessimple,parsegenomes,complexes"
 fi
