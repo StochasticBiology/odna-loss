@@ -163,10 +163,12 @@ if [[ $commandstr == *blastlabel* ]]; then
     echo "Assigning BLAST labels..."
     # as above, using BLAST-derived replacement list
     # some cleaning from the MT BLAST output goes on here. the seds replace "nd", the most common form for some "nad" genes, with "nad". the Python script ignores gene labels containing "-i" or "oi" -- some rare-ish isoforms have these.
+    { head -n1 Prelims/stats-residue.csv ; head -n1 Prelims/stats-codon.csv; } | sed 's/Residue,//g' | sed 's/Codon,//g' | awk 'BEGIN{printf("Species,Compartment,GeneLabel,");}{printf("%s,", $0);}END{printf("\n");}' | sed 's/,$//g' > Data/mt-stats-blast.csv
     python3 process-labels.py 10 Data/mt-dna.fasta Data/mt-blast-replace.csv Data/mt-stats-blast.csv Data/mt-barcodes-blast.csv Data/mt-species-blast.txt Data/mt-gene-occurrence-blast.csv
     sed -i 's/,nd/,nad/g' Data/mt-barcodes-blast.csv
     sed -i 's/,nd/,nad/g' Data/mt-stats-blast.csv
     sed -i 's/nd/nad/g' Data/mt-gene-occurrence-blast.csv
+    { head -n1 Prelims/stats-residue.csv ; head -n1 Prelims/stats-codon.csv; } | sed 's/Residue,//g' | sed 's/Codon,//g' | awk 'BEGIN{printf("Species,Compartment,GeneLabel,");}{printf("%s,", $0);}END{printf("\n");}' | sed 's/,$//g' > Data/pt-stats-blast.csv
     python3 process-labels.py 10 Data/pt-dna.fasta Data/pt-blast-replace.csv Data/pt-stats-blast.csv Data/pt-barcodes-blast.csv Data/pt-species-blast.txt Data/pt-gene-occurrence-blast.csv 
 fi
 
