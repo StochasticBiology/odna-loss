@@ -159,9 +159,9 @@ if [[ $commandstr == *manuallabel* ]]; then
     # label individual gene data and produce species barcodes
     # using manual replacement list
     # 10 is a threshold for inclusion (a gene must be present in >=10 species): a parameter of the pipeline
-    { head -n1 Prelims/stats-residue.csv ; head -n1 Prelims/stats-codon.csv; } | sed 's/Residue,//g' | sed 's/Codon,//g' | awk 'BEGIN{printf("Species,Compartment,GeneLabel,");}{printf("%s,", $0);}END{printf("\n");}' | sed 's/,$//g' > Data/mt-stats-manual.csv
+    python3 get-feature-labels.py Prelims/stats-residue.csv Prelims/stats-codon.csv  Species,Compartment,GeneLabel, > Data/mt-stats-manual.csv
     python3 process-labels.py 10 Data/mt-dna.fasta Prelims/mt-manual-replace.csv Data/mt-stats-manual.csv Data/mt-barcodes-manual.csv Data/mt-species-manual.txt Data/mt-gene-occurrence-manual.csv
-    { head -n1 Prelims/stats-residue.csv ; head -n1 Prelims/stats-codon.csv; } | sed 's/Residue,//g' | sed 's/Codon,//g' | awk 'BEGIN{printf("Species,Compartment,GeneLabel,");}{printf("%s,", $0);}END{printf("\n");}' | sed 's/,$//g' > Data/pt-stats-manual.csv
+    python3 get-feature-labels.py Prelims/stats-residue.csv Prelims/stats-codon.csv  Species,Compartment,GeneLabel, > Data/pt-stats-manual.csv
     python3 process-labels.py 10 Data/pt-dna.fasta Prelims/pt-manual-replace.csv Data/pt-stats-manual.csv Data/pt-barcodes-manual.csv Data/pt-species-manual.txt Data/pt-gene-occurrence-manual.csv 
 fi
 
@@ -169,12 +169,12 @@ if [[ $commandstr == *blastlabel* ]]; then
     echo "Assigning BLAST labels..."
     # as above, using BLAST-derived replacement list
     # some cleaning from the MT BLAST output goes on here. the seds replace "nd", the most common form for some "nad" genes, with "nad". the Python script ignores gene labels containing "-i" or "oi" -- some rare-ish isoforms have these.
-    { head -n1 Prelims/stats-residue.csv ; head -n1 Prelims/stats-codon.csv; } | sed 's/Residue,//g' | sed 's/Codon,//g' | awk 'BEGIN{printf("Species,Compartment,GeneLabel,");}{printf("%s,", $0);}END{printf("\n");}' | sed 's/,$//g' > Data/mt-stats-blast.csv
+    python3 get-feature-labels.py Prelims/stats-residue.csv Prelims/stats-codon.csv Species,Compartment,GeneLabel, > Data/mt-stats-blast.csv
     python3 process-labels.py 10 Data/mt-dna.fasta Data/mt-blast-replace.csv Data/mt-stats-blast.csv Data/mt-barcodes-blast.csv Data/mt-species-blast.txt Data/mt-gene-occurrence-blast.csv
     sed -i 's/,nd/,nad/g' Data/mt-barcodes-blast.csv
     sed -i 's/,nd/,nad/g' Data/mt-stats-blast.csv
     sed -i 's/nd/nad/g' Data/mt-gene-occurrence-blast.csv
-    { head -n1 Prelims/stats-residue.csv ; head -n1 Prelims/stats-codon.csv; } | sed 's/Residue,//g' | sed 's/Codon,//g' | awk 'BEGIN{printf("Species,Compartment,GeneLabel,");}{printf("%s,", $0);}END{printf("\n");}' | sed 's/,$//g' > Data/pt-stats-blast.csv
+    python3 get-feature-labels.py Prelims/stats-residue.csv Prelims/stats-codon.csv Species,Compartment,GeneLabel, > Data/pt-stats-blast.csv
     python3 process-labels.py 10 Data/pt-dna.fasta Data/pt-blast-replace.csv Data/pt-stats-blast.csv Data/pt-barcodes-blast.csv Data/pt-species-blast.txt Data/pt-gene-occurrence-blast.csv 
 fi
 
@@ -232,7 +232,7 @@ fi
 
 if [[ $commandstr == *parsegenomes* ]]; then
     echo "Parsing genome records..."
-    { head -n1 Prelims/stats-residue.csv ; head -n1 Prelims/stats-codon.csv; } | sed 's/Residue,//g' | sed 's/Codon,//g' | awk 'BEGIN{printf("Species,Compartment,GeneLabel,");}{printf("%s,", $0);}END{printf("\n");}' | sed 's/,$//g' > Data/all-stats.csv
+    python3 get-feature-labels.py Prelims/stats-residue.csv Prelims/stats-codon.csv Species,Compartment,GeneLabel, > Data/all-stats.csv
 #    echo Species,Compartment,GeneLabel,Length,Hydro,Hydro_i,MolWeight,pKa1,pKa2,A_Glu,CW,GC,Uni1,Uni2,Robust,GC12,GC3 > Data/all-stats.csv
     echo > Data/all-refs.txt
     # parse the resulting datafiles to extract quantitative data
@@ -268,7 +268,7 @@ if [[ $commandstr == *downloadotherorganelles* ]]; then
 fi
 
 if [[ $commandstr == *processotherorganelles* ]]; then
-    { head -n1 Prelims/stats-residue.csv ; head -n1 Prelims/stats-codon.csv; } | sed 's/Residue,//g' | sed 's/Codon,//g' | awk 'BEGIN{printf("SystemLabel,Partner,GeneLabel,");}{printf("%s,", $0);}END{printf("\n");}' | sed 's/,$//g' > Data/symbiont-all-stats.csv
+    python3 get-feature-labels.py Prelims/stats-residue.csv Prelims/stats-codon.csv  SystemLabel,Partner,GeneLabel, > Data/symbiont-all-stats.csv
    
     # parse the resulting datafiles to extract quantitative data
     for file in Downloads/*-symbiont.fasta
