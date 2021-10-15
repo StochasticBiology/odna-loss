@@ -82,6 +82,7 @@ for line in lines:
     if line[0] == '>':
         lineset = line.rstrip("\n").split(",")
         species = lineset[0][1:]
+        nfeats = len(lineset)
         genelabel = lineset[1]
         if genelabel in replacements:
             truelabel = replacements[genelabel]
@@ -93,7 +94,7 @@ for line in lines:
             else:
                 speciesdict[species] = [truelabel]
             if lineset[4] != "statserror":
-                outfile.write(species.replace("_", " ")+","+compartment+","+truelabel+","+str(lineset[4:18]).replace(", ",",").replace("[","").replace("]","").replace("'","")+"\n")
+                outfile.write(species.replace("_", " ")+","+compartment+","+truelabel+","+str(lineset[4:nfeats]).replace(", ",",").replace("[","").replace("]","").replace("'","")+"\n")
 
 outfile.close()
 
