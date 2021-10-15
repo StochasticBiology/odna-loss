@@ -338,4 +338,6 @@ if [[ $commandstr == *latextable* ]]; then
     ./latex-table.sh Data/model-sel-barcode-bayeslm-stats.csv > Data/latex-modelsel-barcode.tex
     ./latex-table.sh Data/index-regression-simple-manual-sampled.csv > Data/latex-regression-simple.tex
     ./latex-table.sh Data/nuc-org-manual-results.csv > Data/latex-nucorg.tex
+    # this pulls statistics from the code output and embeds in LaTeX
+    Rscript latex-interpret.R
 fi
