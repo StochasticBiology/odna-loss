@@ -11,7 +11,7 @@ A modern machine with 35GB hard disk space should be sufficient for the pipeline
 Outline 
 =====
 
-The pipeline consists of Python and R scripts and one piece of C code. Broadly, each script solves a subproblem in the workflow -- parsing sequence data, model selection, etc. The Bash script `run-all.sh` serves both as a wrapper for the whole pipeline and to explain the workflow. Use it if you have a Bash environment. If not, open it in a text editor, where you will be able to see which individual scripts are invoked for each part of the pipeline.
+The pipeline consists of (Bash) calls to download data from NCBI, Python and R scripts, and one piece of C code. Broadly, each script solves a subproblem in the workflow -- parsing sequence data, model selection, etc. The Bash script `run-all.sh` serves both as a wrapper for the whole pipeline and to explain the workflow. Use it if you have a Bash environment. If not, open it in a text editor, where you will be able to see which individual scripts are invoked for each part of the pipeline.
 
 The `Prelims/` directory contains some pre-existing scientific data needed for some parts of the analysis, including amino acid properties, eukaryotic accessions, etc.
 
