@@ -74,8 +74,9 @@ print("From file "+srcfilename+" we have "+str(len(geneset))+" genes of interest
 
 # now, read through the source data again, record genes of interest that are present for each species
 # and outputting their summary statistics to file
-outfile = open(statsfilename, "w")
-outfile.write("Species,Compartment,GeneLabel,Length,Hydro,Hydro_i,MolWeight,pKa1,pKa2,A_Glu,CW,GC,Uni1,Uni2,Robust,GC12,GC3\n")
+outfile = open(statsfilename, "a")
+#outfile = open(statsfilename, "w")
+#outfile.write("Species,Compartment,GeneLabel,Length,Hydro,Hydro_i,MolWeight,pKa1,pKa2,A_Glu,CW,GC,Uni1,Uni2,Robust,GC12,GC3\n")
 speciesdict = {}
 for line in lines:
     if line[0] == '>':

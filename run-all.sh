@@ -153,7 +153,9 @@ if [[ $commandstr == *manuallabel* ]]; then
     # label individual gene data and produce species barcodes
     # using manual replacement list
     # 10 is a threshold for inclusion (a gene must be present in >=10 species): a parameter of the pipeline
-    python3 process-labels.py 10 Data/mt-dna.fasta Prelims/mt-manual-replace.csv Data/mt-stats-manual.csv Data/mt-barcodes-manual.csv Data/mt-species-manual.txt Data/mt-gene-occurrence-manual.csv 
+    { head -n1 Prelims/stats-residue.csv ; head -n1 Prelims/stats-codon.csv; } | sed 's/Residue,//g' | sed 's/Codon,//g' | awk 'BEGIN{printf("Species,Compartment,GeneLabel,");}{printf("%s,", $0);}END{printf("\n");}' | sed 's/,$//g' > Data/mt-stats-manual.csv
+    python3 process-labels.py 10 Data/mt-dna.fasta Prelims/mt-manual-replace.csv Data/mt-stats-manual.csv Data/mt-barcodes-manual.csv Data/mt-species-manual.txt Data/mt-gene-occurrence-manual.csv
+    { head -n1 Prelims/stats-residue.csv ; head -n1 Prelims/stats-codon.csv; } | sed 's/Residue,//g' | sed 's/Codon,//g' | awk 'BEGIN{printf("Species,Compartment,GeneLabel,");}{printf("%s,", $0);}END{printf("\n");}' | sed 's/,$//g' > Data/pt-stats-manual.csv
     python3 process-labels.py 10 Data/pt-dna.fasta Prelims/pt-manual-replace.csv Data/pt-stats-manual.csv Data/pt-barcodes-manual.csv Data/pt-species-manual.txt Data/pt-gene-occurrence-manual.csv 
 fi
 
