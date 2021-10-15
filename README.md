@@ -4,7 +4,7 @@ Bioinformatics pipeline for data acquisition and analysis on oDNA loss across eu
 Requirements
 ----
 
-Python 3 with `BioPython`, `ete3`; PyMOL; local BLAST; R with libraries:  `ape`, `arm`, `blme`, `caper`, `cowplot`, `e1071`, `geiger`, `GGally`, `ggnewscale`, `ggplot2`, `ggpubr`, `ggpval`, `ggrepel`, `ggtree*`, `ggtreeExtra*`, `glmnet`, `gridExtra`, `hexbin`, `igraph`, `lme4`, `logistf`, `mombf`, `nlme`, `phangorn`, `phytools`, `randomForest`, `stringdist`, `stringr`, `tree` (these R libraries can be installed with a single command-line option below).  (* `ggtree` needs installing via Bioconductor)
+Python 3 with `BioPython`, `ete3`; PyMOL; local BLAST; R with libraries:  `ape`, `arm`, `BMA`, `blme`, `caper`, `cowplot`, `e1071`, `geiger`, `GGally`, `ggnewscale`, `ggplot2`, `ggpubr`, `ggpval`, `ggrepel`, `ggtree*`, `ggtreeExtra*`, `glmnet`, `gridExtra`, `hexbin`, `igraph`, `lme4`, `logistf`, `mombf`, `nlme`, `phangorn`, `phytools`, `randomForest`, `stringdist`, `stringr`, `tree` (these R libraries can be installed with a single command-line option below).  (* `ggtree` needs installing via Bioconductor)
 
 A modern machine with 35GB hard disk space should be sufficient for the pipeline without the full BLAST comparison (see below). If you are doing the full BLAST comparison, you'll need at least 160GB hard disk space and several GB of memory, and ideally several cores (default 6).
 
@@ -19,7 +19,7 @@ The scientific aspects of the pipeline come in two parts: "Data curation and pro
 
 For example,
 `./run-all.sh downloadorganelles,processorganelles` would run the first two submodules in the "Data curation and production" part.
-`./run-all.sh default` is interpreted as `./run-all.sh downloadorganelles,processorganelles,manuallabel,processtreesmanual,getindicessimple,downloadgenomes,parsegenomes,complexes,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics` and runs the default pipeline without full BLAST analysis.
+`./run-all.sh default` is interpreted as `./run-all.sh downloadorganelles,processorganelles,manuallabel,processtreesmanual,getindicessimple,downloadgenomes,parsegenomes,complexes,downloadotherorganelles,processotherorganelles,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics` and runs the default pipeline without full BLAST analysis.
 
 The options are:
 
@@ -39,6 +39,8 @@ The options are:
     * `downloadgenomes`       -- download whole genome data
     * `parsegenomes`         -- parse downloaded whole genome data
     * `complexes`           -- analyse energetics of organelle protein complexes
+    * `downloadotherorganelles`      -- download genomes for symbionts and partners
+    * `processotherorganelles`      -- parse symbiont and partner data
 * Statistics
     * `datavisualisation`         -- visualise barcodes
     * `indexregression`           -- regression analysis for various retention indices within organelles
@@ -49,4 +51,4 @@ The options are:
 * Manuscript
     * `latextable`             -- convert tabular output to LaTeX form
 
-With a few exceptions, no aspects of the pipeline are very computationally intensive -- each should run in under an hour on a modern machine (most substantially faster). `fullblast` is an optional all-against-all BLAST comparison of all genes in the dataset. This takes some time, even using multiple cores (default 6, set with `-num_threads`). The MT set takes perhaps a day, the PT set perhaps several, and the followup `blastlabel` will likely take an hour or so. Output files are 30GB (MT) and 91GB (PT). Several GB of free memory is also required. `downloadgenomes` involves downloading quite a few whole-genome records from NCBI and can take perhaps half or a full day depending on download rates; `downloadorganelles` and `otherorganelles` also involve getting (fewer) gene records and will take a few minutes at 200kB.
+With a few exceptions, no aspects of the pipeline are very computationally intensive -- each should run in under an hour on a modern machine (most substantially faster). `fullblast` is an optional all-against-all BLAST comparison of all genes in the dataset. This takes some time, even using multiple cores (default 6, set with `-num_threads`). The MT set takes perhaps a day, the PT set perhaps several, and the followup `blastlabel` will likely take an hour or so. Output files are 30GB (MT) and 91GB (PT). Several GB of free memory is also required. `downloadgenomes` involves downloading quite a few whole-genome records from NCBI and can take perhaps half or a full day depending on download rates; `downloadorganelles` and `downloadotherorganelles` also involve getting (fewer) gene records and will take a few minutes at 200kB.
