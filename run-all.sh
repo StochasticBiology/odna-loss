@@ -222,7 +222,8 @@ fi
 
 if [[ $commandstr == *parsegenomes* ]]; then
     echo "Parsing genome records..."
-    echo Species,Compartment,GeneLabel,Length,Hydro,Hydro_i,MolWeight,pKa1,pKa2,A_Glu,CW,GC,Uni1,Uni2,Robust,GC12,GC3 > Data/all-stats.csv
+    { head -n1 stats-residue.csv ; head -n1 stats-codon.csv; } | sed 's/Residue,//g' | sed 's/Codon,//g' | awk 'BEGIN{printf("Species,Compartment,GeneLabel,");}{printf("%s,", $0);}END{printf("\n");}' | sed 's/,$//g' > Data/all-stats.csv
+#    echo Species,Compartment,GeneLabel,Length,Hydro,Hydro_i,MolWeight,pKa1,pKa2,A_Glu,CW,GC,Uni1,Uni2,Robust,GC12,GC3 > Data/all-stats.csv
     echo > Data/all-refs.txt
     # parse the resulting datafiles to extract quantitative data
     for file in Downloads/cds*txt
@@ -255,7 +256,7 @@ if [[ $commandstr == *otherorganelles* ]]; then
     chmod +x download-pairs.sh
     ./download-pairs.sh
 
-    echo SystemLabel,Partner,GeneLabel,Length,Hydro,Hydro_i,MolWeight,pKa1,pKa2,A_Glu,CW,GC,Uni1,Uni2,Robust,GC12,GC3 > Data/symbiont-all-stats.csv
+    { head -n1 stats-residue.csv ; head -n1 stats-codon.csv; } | sed 's/Residue,//g' | sed 's/Codon,//g' | awk 'BEGIN{printf("SystemLabel,Partner,GeneLabel,");}{printf("%s,", $0);}END{printf("\n");}' | sed 's/,$//g' > Data/symbiont-all-stats.csv
    
     # parse the resulting datafiles to extract quantitative data
     for file in Downloads/*-symbiont.fasta

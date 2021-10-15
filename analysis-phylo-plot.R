@@ -18,6 +18,7 @@ lengthNormalise = function(df) {
   df$Hydro_i = df$Hydro_i/df$Length
   df$pKa1 = df$pKa1/df$Length
   df$pKa2 = df$pKa2/df$Length
+  df$pI = df$pI2/df$Length
   df$Uni1 = df$Uni1/df$Length
   df$Uni2 = df$Uni2/df$Length
   df$Robust = df$Robust/df$Length
