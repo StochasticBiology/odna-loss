@@ -13,18 +13,20 @@
 # installothers         -- install other software
 
 ## Data curation and production
-# downloadorganelles*   -- download organelle genome data
-# processorganelles*    -- process downloaded organelle genome data to get statistics
-# fullblast             -- BLAST all-vs-all organelle gene records
-# blastdictionary       -- construct a label replacement dictionary from BLAST analysis
-# manuallabel*%         -- label and process organelle gene records given a manually constructed replacement dictionary
-# blastlabel            -- label and process organelle gene records given a BLAST-constructed replacement dictionary
-# processtreesmanual*^  -- process taxonomy trees for manual case
-# processtreesblast     -- process taxonomy trees for BLAST case
-# getindicessimple*     -- use simple barcode analysis to estimate retention indices
-# downloadgenomes*      -- download whole genome data
-# parsegenomes*         -- parse downloaded whole genome data
-# complexes*%           -- analyse energetics of organelle protein complexes
+# downloadorganelles*           -- download organelle genome data
+# processorganelles*            -- process downloaded organelle genome data to get statistics
+# fullblast                     -- BLAST all-vs-all organelle gene records
+# blastdictionary               -- construct a label replacement dictionary from BLAST analysis
+# manuallabel*%                 -- label and process organelle gene records given a manually constructed replacement dictionary
+# blastlabel                    -- label and process organelle gene records given a BLAST-constructed replacement dictionary
+# processtreesmanual*^          -- process taxonomy trees for manual case
+# processtreesblast             -- process taxonomy trees for BLAST case
+# getindicessimple*             -- use simple barcode analysis to estimate retention indices
+# downloadgenomes*              -- download whole genome data
+# parsegenomes*                 -- parse downloaded whole genome data
+# complexes*%                   -- analyse energetics of organelle protein complexes
+# downloadotherorganelles*      -- download genomes for symbionts and partners
+# processotherorganelles*       -- parse symbiont and partner data
 
 ## Statistics
 # datavisualisation*         -- visualise barcodes
@@ -61,7 +63,7 @@ fi
 commandstr=$1
 
 if [[ $commandstr == *default* ]]; then
-    commandstr="downloadorganelles,processorganelles,manuallabel,processtreesmanual,getindicessimple,downloadgenomes,parsegenomes,complexes,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics"
+    commandstr="downloadorganelles,processorganelles,manuallabel,processtreesmanual,getindicessimple,downloadgenomes,parsegenomes,complexes,downloadotherorganelles,processotherorganelles,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics"
 fi
 
 if [[ $commandstr == *reduced* ]]; then
@@ -254,12 +256,14 @@ if [[ $commandstr == *complexes* ]]; then
     done
 fi
 
-if [[ $commandstr == *otherorganelles* ]]; then
+if [[ $commandstr == *downloadotherorganelles* ]]; then
     echo "Downloading symbiont records..."
     python3 get-pairs.py Prelims/symbionts.csv ./download-pairs.sh
     chmod +x download-pairs.sh
     ./download-pairs.sh
+fi
 
+if [[ $commandstr == *processotherorganelles* ]]; then
     { head -n1 Prelims/stats-residue.csv ; head -n1 Prelims/stats-codon.csv; } | sed 's/Residue,//g' | sed 's/Codon,//g' | awk 'BEGIN{printf("SystemLabel,Partner,GeneLabel,");}{printf("%s,", $0);}END{printf("\n");}' | sed 's/,$//g' > Data/symbiont-all-stats.csv
    
     # parse the resulting datafiles to extract quantitative data
