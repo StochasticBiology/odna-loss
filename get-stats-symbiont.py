@@ -31,10 +31,10 @@ def getstats(mydna, mypro, codondict, residuedict):
     if i+2 < len(mydna):
       codon = mydna[i]+mydna[i+1]+mydna[i+2]
       if codon not in codondict:
-        print("Didn't find ",+codon+"\n")
+        print("Didn't find "+codon+"\n")
         return -999
       record = codondict[codon]
-      for i in range(nrfeatures,nrfeatures+len(record)):
+      for i in range(nrfeatures,nfeatures+1):
           genestats[i] = genestats[i] + record[i-nrfeatures]
 
   return genestats  
