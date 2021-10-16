@@ -55,3 +55,7 @@ The options are:
     * `latextable`             -- convert tabular output to LaTeX form
 
 With a few exceptions, no aspects of the pipeline are very computationally intensive -- each should run in under an hour on a modern machine (most substantially faster). `fullblast` is an optional all-against-all BLAST comparison of all genes in the dataset. This takes some time, even using multiple cores (default 6, set with `-num_threads`). The MT set takes perhaps a day, the PT set perhaps several, and the followup `blastlabel` will likely take an hour or so. Output files are 30GB (MT) and 91GB (PT). Several GB of free memory is also required. `downloadgenomes` involves downloading quite a few whole-genome records from NCBI and can take perhaps half or a full day depending on download rates; `downloadorganelles` and `downloadotherorganelles` also involve getting (fewer) gene records and will take a few minutes at 200kB.
+
+Extendability
+----
+This fork is attempting to make the addition of new residue and codon features into the analysis as automated as possible. Hopefully only two aspects of the "Data curation and production" part need changing to introduce a new feature: (a) including its values in `Prelims/stats-residues.csv` or `Prelims/stats-codons.csv`; and (b) editing `lengthNormalise.R` to impose its normalisation and give it labels for the "Statistics" part. The individual experiments in the "Statistics" part will need to be edited to ask scientific questions about any new features added; in particular, the model structure in `analysis-model-fit.R`. 
