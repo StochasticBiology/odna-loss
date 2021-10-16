@@ -264,8 +264,6 @@ grid.arrange(my.plots[[1]], my.plots[[2]], my.plots[[3]], my.plots[[4]], my.plot
 
 dev.off()
 
-stop()
-
 ##################
 
 message("Normal trees...")
