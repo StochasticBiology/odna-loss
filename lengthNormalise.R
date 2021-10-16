@@ -1,5 +1,6 @@
 # function to normalise selected statistics by gene length
 # some, like molecular weight and production energy, make more sense unnormalised
+# depends on the spelling of features in the original data
 lengthNormalise = function(df) {
   df$Hydro = df$Hydro/df$Length
   df$Hydro_i = df$Hydro_i/df$Length
@@ -15,6 +16,8 @@ lengthNormalise = function(df) {
   return(df)
 }
 
+# these two functions provide shortened labels for the different features in the model selection process
+# one based on relabelling existing labels, one constructed de novo (both depend on the spelling and ordering of features in the original data)
 feature.relabel = function(s) {
   s = gsub("Length.x", "Len", s)
   s = gsub("Hydro.x", "Hyd", s)
