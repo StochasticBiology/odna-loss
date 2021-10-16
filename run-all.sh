@@ -13,18 +13,20 @@
 # installothers         -- install other software
 
 ## Data curation and production
-# downloadorganelles*   -- download organelle genome data
-# processorganelles*    -- process downloaded organelle genome data to get statistics
-# fullblast             -- BLAST all-vs-all organelle gene records
-# blastdictionary       -- construct a label replacement dictionary from BLAST analysis
-# manuallabel*%         -- label and process organelle gene records given a manually constructed replacement dictionary
-# blastlabel            -- label and process organelle gene records given a BLAST-constructed replacement dictionary
-# processtreesmanual*^  -- process taxonomy trees for manual case
-# processtreesblast     -- process taxonomy trees for BLAST case
-# getindicessimple*     -- use simple barcode analysis to estimate retention indices
-# downloadgenomes*      -- download whole genome data
-# parsegenomes*         -- parse downloaded whole genome data
-# complexes*%           -- analyse energetics of organelle protein complexes
+# downloadorganelles*           -- download organelle genome data
+# processorganelles*            -- process downloaded organelle genome data to get statistics
+# fullblast                     -- BLAST all-vs-all organelle gene records
+# blastdictionary               -- construct a label replacement dictionary from BLAST analysis
+# manuallabel*%                 -- label and process organelle gene records given a manually constructed replacement dictionary
+# blastlabel                    -- label and process organelle gene records given a BLAST-constructed replacement dictionary
+# processtreesmanual*^          -- process taxonomy trees for manual case
+# processtreesblast             -- process taxonomy trees for BLAST case
+# getindicessimple*             -- use simple barcode analysis to estimate retention indices
+# downloadgenomes*              -- download whole genome data
+# parsegenomes*                 -- parse downloaded whole genome data
+# complexes*%                   -- analyse energetics of organelle protein complexes
+# downloadotherorganelles*      -- download genomes for symbionts and partners
+# processotherorganelles*       -- parse symbiont and partner data
 
 ## Statistics
 # datavisualisation*         -- visualise barcodes
@@ -61,7 +63,15 @@ fi
 commandstr=$1
 
 if [[ $commandstr == *default* ]]; then
-    commandstr="downloadorganelles,processorganelles,manuallabel,processtreesmanual,getindicessimple,downloadgenomes,parsegenomes,complexes,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics"
+    commandstr="downloadorganelles,processorganelles,manuallabel,processtreesmanual,getindicessimple,downloadgenomes,parsegenomes,complexes,downloadotherorganelles,processotherorganelles,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics"
+fi
+
+if [[ $commandstr == *reprocess* ]]; then
+    commandstr="processorganelles,manuallabel,processtreesmanual,getindicessimple,parsegenomes,complexes,processotherorganelles,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics"
+fi
+
+if [[ $commandstr == *statistics* ]]; then
+    commandstr="datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics"
 fi
 
 if [[ $commandstr == *reduced* ]]; then
@@ -153,7 +163,9 @@ if [[ $commandstr == *manuallabel* ]]; then
     # label individual gene data and produce species barcodes
     # using manual replacement list
     # 10 is a threshold for inclusion (a gene must be present in >=10 species): a parameter of the pipeline
-    python3 process-labels.py 10 Data/mt-dna.fasta Prelims/mt-manual-replace.csv Data/mt-stats-manual.csv Data/mt-barcodes-manual.csv Data/mt-species-manual.txt Data/mt-gene-occurrence-manual.csv 
+    python3 get-feature-labels.py Prelims/stats-residue.csv Prelims/stats-codon.csv  Species,Compartment,GeneLabel, > Data/mt-stats-manual.csv
+    python3 process-labels.py 10 Data/mt-dna.fasta Prelims/mt-manual-replace.csv Data/mt-stats-manual.csv Data/mt-barcodes-manual.csv Data/mt-species-manual.txt Data/mt-gene-occurrence-manual.csv
+    python3 get-feature-labels.py Prelims/stats-residue.csv Prelims/stats-codon.csv  Species,Compartment,GeneLabel, > Data/pt-stats-manual.csv
     python3 process-labels.py 10 Data/pt-dna.fasta Prelims/pt-manual-replace.csv Data/pt-stats-manual.csv Data/pt-barcodes-manual.csv Data/pt-species-manual.txt Data/pt-gene-occurrence-manual.csv 
 fi
 
@@ -161,10 +173,12 @@ if [[ $commandstr == *blastlabel* ]]; then
     echo "Assigning BLAST labels..."
     # as above, using BLAST-derived replacement list
     # some cleaning from the MT BLAST output goes on here. the seds replace "nd", the most common form for some "nad" genes, with "nad". the Python script ignores gene labels containing "-i" or "oi" -- some rare-ish isoforms have these.
+    python3 get-feature-labels.py Prelims/stats-residue.csv Prelims/stats-codon.csv Species,Compartment,GeneLabel, > Data/mt-stats-blast.csv
     python3 process-labels.py 10 Data/mt-dna.fasta Data/mt-blast-replace.csv Data/mt-stats-blast.csv Data/mt-barcodes-blast.csv Data/mt-species-blast.txt Data/mt-gene-occurrence-blast.csv
     sed -i 's/,nd/,nad/g' Data/mt-barcodes-blast.csv
     sed -i 's/,nd/,nad/g' Data/mt-stats-blast.csv
     sed -i 's/nd/nad/g' Data/mt-gene-occurrence-blast.csv
+    python3 get-feature-labels.py Prelims/stats-residue.csv Prelims/stats-codon.csv Species,Compartment,GeneLabel, > Data/pt-stats-blast.csv
     python3 process-labels.py 10 Data/pt-dna.fasta Data/pt-blast-replace.csv Data/pt-stats-blast.csv Data/pt-barcodes-blast.csv Data/pt-species-blast.txt Data/pt-gene-occurrence-blast.csv 
 fi
 
@@ -222,7 +236,8 @@ fi
 
 if [[ $commandstr == *parsegenomes* ]]; then
     echo "Parsing genome records..."
-    echo Species,Compartment,GeneLabel,Length,Hydro,Hydro_i,MolWeight,pKa1,pKa2,A_Glu,CW,GC,Uni1,Uni2,Robust,GC12,GC3 > Data/all-stats.csv
+    python3 get-feature-labels.py Prelims/stats-residue.csv Prelims/stats-codon.csv Species,Compartment,GeneLabel, > Data/all-stats.csv
+#    echo Species,Compartment,GeneLabel,Length,Hydro,Hydro_i,MolWeight,pKa1,pKa2,A_Glu,CW,GC,Uni1,Uni2,Robust,GC12,GC3 > Data/all-stats.csv
     echo > Data/all-refs.txt
     # parse the resulting datafiles to extract quantitative data
     for file in Downloads/cds*txt
@@ -249,13 +264,15 @@ if [[ $commandstr == *complexes* ]]; then
     done
 fi
 
-if [[ $commandstr == *otherorganelles* ]]; then
+if [[ $commandstr == *downloadotherorganelles* ]]; then
     echo "Downloading symbiont records..."
     python3 get-pairs.py Prelims/symbionts.csv ./download-pairs.sh
     chmod +x download-pairs.sh
     ./download-pairs.sh
+fi
 
-    echo SystemLabel,Partner,GeneLabel,Length,Hydro,Hydro_i,MolWeight,pKa1,pKa2,A_Glu,CW,GC,Uni1,Uni2,Robust,GC12,GC3 > Data/symbiont-all-stats.csv
+if [[ $commandstr == *processotherorganelles* ]]; then
+    python3 get-feature-labels.py Prelims/stats-residue.csv Prelims/stats-codon.csv  SystemLabel,Partner,GeneLabel, > Data/symbiont-all-stats.csv
    
     # parse the resulting datafiles to extract quantitative data
     for file in Downloads/*-symbiont.fasta

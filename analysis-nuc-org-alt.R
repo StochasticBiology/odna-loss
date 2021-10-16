@@ -16,21 +16,7 @@ library(ggnewscale)
 library(gridExtra)
 library(tree)
 
-# function to normalise selected statistics by gene length
-# some, like molecular weight and production energy, make more sense unnormalised
-lengthNormalise = function(df) {
-  df$Hydro = df$Hydro/df$Length
-  df$Hydro_i = df$Hydro_i/df$Length
-  df$pKa1 = df$pKa1/df$Length
-  df$pKa2 = df$pKa2/df$Length
-  df$Uni1 = df$Uni1/df$Length
-  df$Uni2 = df$Uni2/df$Length
-  df$Robust = df$Robust/df$Length
-  df$GC = df$GC/df$Length
-  df$GC12 = df$GC12/df$Length
-  df$GC3 = df$GC3/df$Length
-  return(df)
-}
+source("lengthNormalise.R")
 
 message("Reading data...")
 
@@ -277,8 +263,6 @@ png(hexesoutput.pka2, width=1000*res.factor, height=1000*res.factor, res=72*res.
 grid.arrange(my.plots[[1]], my.plots[[2]], my.plots[[3]], my.plots[[4]], my.plots[[5]], my.plots[[6]], my.plots[[7]], my.plots[[8]], my.plots[[9]], my.plots[[10]], my.plots[[11]], my.plots[[12]], ncol=3)
 
 dev.off()
-
-stop()
 
 ##################
 

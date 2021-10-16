@@ -9,7 +9,9 @@ import sys
 def getstats(mydna, mypro, codondict, residuedict):
 
   # populate list of statistics
-  genestats = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  nfeatures = len(residuedict['A'])+len(codondict['AAA'])
+  nrfeatures = len(residuedict['A'])
+  genestats = [0 for i in range(1,nfeatures+1)]
 
   # first go through protein sequence, looking up by character code
   for code in mypro:
@@ -32,8 +34,8 @@ def getstats(mydna, mypro, codondict, residuedict):
         print("Didn't find "+codon+"\n")
         return -999
       record = codondict[codon]
-      for i in range(8,8+len(record)):
-          genestats[i] = genestats[i] + record[i-8]
+      for i in range(nrfeatures,nfeatures):
+          genestats[i] = genestats[i] + record[i-nrfeatures]
 
   return genestats  
 
