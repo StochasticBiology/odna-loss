@@ -17,6 +17,8 @@ library(gridExtra)
 library(ggrepel)
 library(cowplot)
 
+source("lengthNormalise.R")
+
 use.ranks = F              # whether to rank retention indices or use straight value
 clean.genes = T            # whether to remove msh1, matk, etc
 mean.protocol = args[7]    
