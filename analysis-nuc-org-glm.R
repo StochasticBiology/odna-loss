@@ -21,18 +21,6 @@ outputtext = paste(c(args[5], "nuc-org-glm-", args[4], ".csv"), collapse="")
 
 source("lengthNormalise.R")
 
-feature.relabel = function(s) {
-  s = gsub("Length.x", "Len", s)
-  s = gsub("Hydro.x", "Hyd", s)
-  s = gsub("Hydro_i.x", "HydI", s)
-  s = gsub("MolWeight.x", "MW", s)
-  s = gsub("pKa1.x", "pK1", s)
-  s = gsub("pKa2.x", "pK2", s)
-  s = gsub("A_Glu.x", "AG", s)
-  s = gsub("CW.x", "CW", s)
-  return(s)
-}
-  
 message("Reading data...")
 
 # read pipeline outputs
