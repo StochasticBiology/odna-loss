@@ -87,7 +87,7 @@ echo "Command string is $commandstr"
 
 if [[ $commandstr == *installrpackages* ]]; then
     echo "Installing packages..."
-    R -e "install.packages(c(\"ape\", \"arm\", \"blme\", \"caper\", \"cowplot\", \"e1071\", \"geiger\", \"GGally\", \"ggnewscale\", \"ggplot2\", \"ggpubr\", \"ggpval\", \"ggrepel\", \"glmnet\", \"gridExtra\", \"hexbin\", \"igraph\", \"lme4\", \"logistf\", \"mombf\", \"nlme\", \"phangorn\", \"phytools\", \"randomForest\", \"stringdist\", \"stringr\", \"tree\"))"
+    R -e "install.packages(c(\"ape\", \"arm\", \"blme\", \"BMA\", \"caper\", \"cowplot\", \"e1071\", \"geiger\", \"GGally\", \"ggnewscale\", \"ggplot2\", \"ggpubr\", \"ggpval\", \"ggrepel\", \"glmnet\", \"gridExtra\", \"hexbin\", \"igraph\", \"lme4\", \"logistf\", \"mombf\", \"nlme\", \"phangorn\", \"phytools\", \"randomForest\", \"stringdist\", \"stringr\", \"tree\"))"
     R -e "if (!requireNamespace(\"BiocManager\", quietly = TRUE)) { install.packages(\"BiocManager\") } ; BiocManager::install(\"ggtree\") ; BiocManager::install(\"ggtreeExtra\")"
 fi
 
