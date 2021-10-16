@@ -29,5 +29,5 @@ feature.relabel = function(s) {
 }
 
 model.fit.labels = function() {
-  return c("C", "Len", "Hyd", "HydI", "MW", "pK1", "pK2", "AG", "CW", "pI", "GC")
+  return(c("C", "Len", "Hyd", "HydI", "MW", "pK1", "pK2", "AG", "CW", "pI", "GC"))
 }
