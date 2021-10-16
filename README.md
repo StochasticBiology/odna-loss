@@ -24,6 +24,8 @@ For example,
 
 `./run-all.sh reprocess` is interpreted as `./run-all.sh processorganelles,manuallabel,processtreesmanual,getindicessimple,parsegenomes,complexes,processotherorganelles,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics` and re-runs the default analysis pipeline without full BLAST analysis on pre-downloaded data.
 
+`./run-all.sh statistics` is interpreted as `./run-all.sh datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics` and re-runs the statistical analysis on pre-curated data.
+
 The options are:
 
 * Housekeeping
