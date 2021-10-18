@@ -15,7 +15,7 @@ The pipeline consists of (Bash) calls to download data from NCBI, Python and R s
 
 The `Prelims/` directory contains some pre-existing scientific data needed for some parts of the analysis, including amino acid properties, eukaryotic accessions, etc.
 
-The scientific aspects of the pipeline come in two parts: "Data curation and production" and "Statistics". There are also "Housekeeping" and "Manuscript" parts for installing software and manuscript preparation. Each of these parts has several submodules. Each submodule can be invoked by passing its name as part of a command-line argument to `run-all.sh`. 
+The scientific aspects of the pipeline come in two parts: "Data curation and production" and "Statistics". There are also "Housekeeping" and "Manuscript" parts for installing software and manuscript preparation. Each of these parts has several submodules. Each submodule can be invoked by passing its name as part of a command-line argument to `run-all.sh`. (To run `run-all.sh` from the command line, you will probably need to mark it as executable, with e.g. `chmod +x run-all.sh`)
 
 For example,
 `./run-all.sh downloadorganelles,processorganelles` would run the first two submodules in the "Data curation and production" part.
