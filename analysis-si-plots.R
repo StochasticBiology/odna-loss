@@ -41,17 +41,21 @@ for(i in 1:length(pt.both.labels)) {
   pt.compare.df = rbind(pt.compare.df, data.frame(GeneLabel = pt.both.labels[i], ManualCount = sum(pt.manual[,ref.manual]), BLASTCount = sum(pt.blast[,ref.blast])))
 }
 
-png("Plots/plot-blast-manual.png", width=1000,height=400)
+res.factor = 3
+png("Plots/plot-blast-manual.png", width=800*res.factor,height=300*res.factor, res=72*res.factor)
 p.mt = ggplot(mt.compare.df, aes(x = log(ManualCount), y = log(BLASTCount))) +
   geom_point() +
   geom_text_repel(aes(label=GeneLabel)) +
   geom_abline(a = 1, b = 0) +
-  xlab("Manual count") + ylab("BLAST count")
+  xlab("log Manual count") + ylab("log BLAST count") +
+  theme_light()
 p.pt = ggplot(pt.compare.df, aes(x = log(ManualCount), y = log(BLASTCount))) +
   geom_point() +
   geom_text_repel(aes(label=GeneLabel)) +
   geom_abline(a = 1, b = 0) +
-  xlab("Manual count") + ylab("BLAST count")
+  xlab("log Manual count") + ylab("log BLAST count") +
+  theme_light()
+  
   
 grid.arrange(p.mt, p.pt, nrow=1)
 dev.off()
