@@ -470,10 +470,10 @@ png(rfplotoutput, width=3000, height=600)
 par(mfrow=c(2, max(length(mt.regex), length(pt.regex))))
 
 for(j in 1:length(mt.regex)) {
-  working.df = mt.compare[[j]]
-  working.df = droplevels(working.df[working.df$Compartment != "PT",])
   mt.test.acc = mt.training.acc = NULL
   for(i in 1:nsamp) {
+    working.df = mt.compare[[j]][sample(nrow(mt.compare[[j]]), 0.1*nrow(mt.compare[[j]])),]
+    working.df = droplevels(working.df[working.df$Compartment != "PT",])
     mt.sample.n = nrow(working.df)
     mt.training.refs = sample(seq(from=1,to=mt.sample.n), size=mt.sample.n*testpropn)
     mt.training.set = working.df[mt.training.refs,]
@@ -494,10 +494,10 @@ for(j in 1:length(mt.regex)) {
 }
 
 for(j in 1:length(pt.regex)) {
-  working.df = pt.compare[[j]]
-  working.df = droplevels(working.df[working.df$Compartment != "MT",])
   pt.test.acc = pt.training.acc = NULL
   for(i in 1:nsamp) {
+    working.df = pt.compare[[j]][sample(nrow(pt.compare[[j]]), 0.1*nrow(pt.compare[[j]])),]
+    working.df = droplevels(working.df[working.df$Compartment != "MT",])
     pt.sample.n = nrow(working.df)
     pt.training.refs = sample(seq(from=1,to=pt.sample.n), size=pt.sample.n*testpropn)
     pt.training.set = working.df[pt.training.refs,]
@@ -527,10 +527,10 @@ par(mfrow=c(2,max(length(mt.regex), length(pt.regex))))
 
 
 for(j in 1:length(mt.regex)) {
-  working.df = mt.compare[[j]]
-  working.df = droplevels(working.df[working.df$Compartment != "PT",])
   mt.test.acc = mt.training.acc = NULL
   for(i in 1:nsamp) {
+    working.df = mt.compare[[j]][sample(nrow(mt.compare[[j]]), 0.1*nrow(mt.compare[[j]])),]
+    working.df = droplevels(working.df[working.df$Compartment != "PT",])
     mt.sample.n = nrow(working.df)
     mt.training.refs = sample(seq(from=1,to=mt.sample.n), size=mt.sample.n*testpropn)
     mt.training.set = working.df[mt.training.refs,]
@@ -551,10 +551,10 @@ for(j in 1:length(mt.regex)) {
 }
 
 for(j in 1:length(pt.regex)) {
-  working.df = pt.compare[[j]]
-  working.df = droplevels(working.df[working.df$Compartment != "MT",])
   pt.test.acc = pt.training.acc = NULL
   for(i in 1:nsamp) {
+    working.df = pt.compare[[j]][sample(nrow(pt.compare[[j]]), 0.1*nrow(pt.compare[[j]])),]
+    working.df = droplevels(working.df[working.df$Compartment != "MT",])
     pt.sample.n = nrow(working.df)
     pt.training.refs = sample(seq(from=1,to=pt.sample.n), size=pt.sample.n*testpropn)
     pt.training.set = working.df[pt.training.refs,]
