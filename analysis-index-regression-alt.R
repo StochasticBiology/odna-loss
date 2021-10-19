@@ -566,8 +566,8 @@ mean(pt.cross.acc)
 
 results = rbind(results, data.frame(method="RF", mt.training=mean(mt.training.acc), mt.test=mean(mt.test.acc), pt.training=mean(pt.training.acc), pt.test=mean(pt.test.acc), mt.cross=mean(mt.cross.acc), pt.cross=mean(pt.cross.acc)))
 
-varImpPlot(mt.trained.rf, main="MT", xlab="Importance")
-varImpPlot(pt.trained.rf, main="PT", xlab="Importance")
+varImpPlot(mt.trained.rf, main="MT")
+varImpPlot(pt.trained.rf, main="PT")
 
 #plot(test.predictions, mt.test.set$Index)
 

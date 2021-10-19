@@ -616,8 +616,8 @@ results = rbind(results, data.frame(complex="allMT", model="RF-cross",training.a
 res.factor = 3
 png(rfcrossplotoutput, width=800*res.factor, height=400*res.factor, res = 72*res.factor)
 par(mfrow=c(1,2))
-varImpPlot(mt.cross.rf, main="MT", xlab="Importance")
-varImpPlot(pt.cross.rf, main="PT", xlab="Importance")
+varImpPlot(mt.cross.rf, main="MT")
+varImpPlot(pt.cross.rf, main="PT")
 dev.off()  
   
 mt.cross.rf = randomForest(Compartment ~ Hydro + pKa1, droplevels(all.mt))
