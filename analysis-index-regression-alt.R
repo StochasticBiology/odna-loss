@@ -17,6 +17,7 @@ library(randomForest)
 library(glmnet)
 library(phytools)
 library(e1071)
+set.seed(1)
 
 # lots in here so far!
 ######### Section 0. get data.

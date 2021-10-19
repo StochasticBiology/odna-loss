@@ -15,6 +15,7 @@ library(hexbin)
 library(ggnewscale)
 library(gridExtra)
 library(tree)
+set.seed(1)
 
 source("lengthNormalise.R")
 

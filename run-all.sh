@@ -341,7 +341,6 @@ if [[ $commandstr == *supportingstatistics* ]]; then
     R CMD BATCH analysis-feature-corr.R
     # links between features and energy centrality 
     R CMD BATCH analysis-energy-hydro.R
-    R CMD BATCH analysis-check.R
     # manual/BLAST correlation
     Rscript analysis-si-plots.R
 fi

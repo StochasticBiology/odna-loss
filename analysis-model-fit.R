@@ -16,6 +16,7 @@ library(ggplot2)
 library(gridExtra)
 library(ggrepel)
 library(cowplot)
+set.seed(1)
 
 source("lengthNormalise.R")
 

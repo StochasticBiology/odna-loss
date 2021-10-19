@@ -15,6 +15,7 @@ library(gridExtra)
 library(tree)
 library(BMA)
 library(cowplot)
+set.seed(1)
 
 outputplot = paste(c(args[6], "nuc-org-glm-", args[4], ".png"), collapse="")
 outputtext = paste(c(args[5], "nuc-org-glm-", args[4], ".csv"), collapse="")

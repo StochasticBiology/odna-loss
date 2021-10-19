@@ -10,6 +10,7 @@ if(length(args) < 7) {
 message("Loading libraries...")
 
 library(phytools)
+set.seed(1)
 
 source("lengthNormalise.R")
 

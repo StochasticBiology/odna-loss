@@ -14,6 +14,7 @@ library(blme)
 library(lme4)
 library(ggplot2)
 library(ggrepel)
+set.seed(1)
 
 # threshold of species count for high/low occurrence binarisation
 threshold = as.numeric(args[8])
