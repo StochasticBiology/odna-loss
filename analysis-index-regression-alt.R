@@ -75,8 +75,9 @@ for(i in 1:nrow(mt.df)) {
 }
 mt.df$Index = index.mt$Index[match(mt.df$GeneLabel, index.mt$GeneLabel)]
 
-png(outputmtpairs, width=1000, height=1000)
-ggpairs(subset(mt.df, select=-GeneLabel), upper = list(continuous = wrap("cor", size = 5))) + theme(strip.text.x = element_text(size = 12), strip.text.y = element_text(size = 12))
+res.factor = 3
+png(outputmtpairs, width=1000*res.factor, height=1000*res.factor, res = 72*res.factor)
+ggpairs(subset(mt.df, select=-c(Occurrence, GeneLabel)), upper = list(continuous = wrap("cor", size = 5))) + theme(strip.text.x = element_text(size = 12), strip.text.y = element_text(size = 12))
 dev.off()
 
 pt.df = subset(pt[pt$Protocol==mean.protocol & !is.na(pt$Length),], select=-Protocol)
@@ -86,8 +87,9 @@ for(i in 1:nrow(pt.df)) {
 }
 pt.df$Index = index.pt$Index[match(pt.df$GeneLabel, index.pt$GeneLabel)]
 
-png(outputptpairs, width=1000, height=1000)
-ggpairs(subset(pt.df, select=-GeneLabel),upper = list(continuous = wrap("cor", size = 5))) + theme(strip.text.x = element_text(size = 12), strip.text.y = element_text(size = 12))
+res.factor = 3
+png(outputptpairs, width=1000*res.factor, height=1000*res.factor, res = 72*res.factor)
+ggpairs(subset(pt.df, select=-c(Occurrence, GeneLabel)),upper = list(continuous = wrap("cor", size = 5))) + theme(strip.text.x = element_text(size = 12), strip.text.y = element_text(size = 12))
 dev.off()
 
 #par(mfrow=c(2,1))
@@ -105,7 +107,8 @@ results = data.frame(method=NULL, mt.training=NULL, mt.test=NULL, pt.training=NU
 
 message("Simple models...")
 
-png(tree.examples.plot, width=800, height=400)
+res.factor = 3
+png(tree.examples.plot, width=800*res.factor, height=400*res.factor, res = 72*res.factor)
 n.plot.tree = 3
 par(mfrow=c(2,n.plot.tree))
 
@@ -511,7 +514,8 @@ proc.time()-startpoint
 ## Section 4.1. MT+PT
 
 message("Random forests...")
-png(rf.examples.plot, width=1000, height=600)
+res.factor = 3
+png(rf.examples.plot, width=1000*res.factor, height=600*res.factor, res = 72*res.factor)
 par(mfrow=c(2,2))
 
 mt.test.acc = mt.training.acc = mt.cross.acc = pt.test.acc = pt.training.acc = pt.cross.acc = NULL
@@ -562,8 +566,8 @@ mean(pt.cross.acc)
 
 results = rbind(results, data.frame(method="RF", mt.training=mean(mt.training.acc), mt.test=mean(mt.test.acc), pt.training=mean(pt.training.acc), pt.test=mean(pt.test.acc), mt.cross=mean(mt.cross.acc), pt.cross=mean(pt.cross.acc)))
 
-varImpPlot(mt.trained.rf)
-varImpPlot(pt.trained.rf)
+varImpPlot(mt.trained.rf, main="MT", xlab="Importance")
+varImpPlot(pt.trained.rf, main="PT", xlab="Importance")
 
 #plot(test.predictions, mt.test.set$Index)
 

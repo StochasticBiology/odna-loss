@@ -273,7 +273,8 @@ results = data.frame(complex=NULL,model=NULL,training.acc=NULL,test.acc=NULL,bal
 
 #### usual predictors
 
-png(treeplotoutput, width=800, height=800)
+res.factor = 3
+png(treeplotoutput, width=800*res.factor, height=800*res.factor, res=72*res.factor)
 par(mfrow=c(4,3))
 
 for(j in 1:length(mt.regex)) {
@@ -612,10 +613,11 @@ pt.cross.training.accuracy = sum(pt.cross.training.predicted.class == all.pt$Com
 pt.cross.test.accuracy = sum(pt.cross.test.predicted.class == all.mt$Compartment)/nrow(all.mt)
 results = rbind(results, data.frame(complex="allMT", model="RF-cross",training.acc=pt.cross.training.accuracy, test.acc=pt.cross.test.accuracy, balance=sum(all.mt$Compartment!="MT")/nrow(all.mt)))
 
-png(rfcrossplotoutput, width=800, height=400)
+res.factor = 3
+png(rfcrossplotoutput, width=800*res.factor, height=400*res.factor, res = 72*res.factor)
 par(mfrow=c(1,2))
-varImpPlot(mt.cross.rf)
-varImpPlot(pt.cross.rf)
+varImpPlot(mt.cross.rf, main="MT", xlab="Importance")
+varImpPlot(pt.cross.rf, main="PT", xlab="Importance")
 dev.off()  
   
 mt.cross.rf = randomForest(Compartment ~ Hydro + pKa1, droplevels(all.mt))

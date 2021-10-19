@@ -359,12 +359,12 @@ pt.results.3 = data.frame(Model = pt.pp.3$modelid[1:maxresults], Prob = pt.pp.3$
 
 # produce subplots for final figure
 
-mt.model.sel.plot.1 = ggplot(mt.results.1, aes(x=factor(Model, levels=Model),y=Prob)) + geom_col() + xlab("Model structure") + ylab("Posterior probability")
-pt.model.sel.plot.1 = ggplot(pt.results.1, aes(x=factor(Model, levels=Model),y=Prob)) + geom_col() + xlab("Model structure") + ylab("Posterior probability")
-mt.model.sel.plot.2 = ggplot(mt.results.2, aes(x=factor(Model, levels=Model),y=Prob)) + geom_col() + xlab("Model structure") + ylab("Posterior probability")
-pt.model.sel.plot.2 = ggplot(pt.results.2, aes(x=factor(Model, levels=Model),y=Prob)) + geom_col() + xlab("Model structure") + ylab("Posterior probability")
-mt.model.sel.plot.3 = ggplot(mt.results.3, aes(x=factor(Model, levels=Model),y=Prob)) + geom_col() + xlab("Model structure") + ylab("Posterior probability")
-pt.model.sel.plot.3 = ggplot(pt.results.3, aes(x=factor(Model, levels=Model),y=Prob)) + geom_col() + xlab("Model structure") + ylab("Posterior probability")
+mt.model.sel.plot.1 = ggplot(mt.results.1, aes(x=factor(Model, levels=Model),y=Prob)) + geom_col() + xlab("Model structure") + ylab("Posterior probability") + theme_light()
+pt.model.sel.plot.1 = ggplot(pt.results.1, aes(x=factor(Model, levels=Model),y=Prob)) + geom_col() + xlab("Model structure") + ylab("Posterior probability") + theme_light()
+mt.model.sel.plot.2 = ggplot(mt.results.2, aes(x=factor(Model, levels=Model),y=Prob)) + geom_col() + xlab("Model structure") + ylab("Posterior probability") + theme_light()
+pt.model.sel.plot.2 = ggplot(pt.results.2, aes(x=factor(Model, levels=Model),y=Prob)) + geom_col() + xlab("Model structure") + ylab("Posterior probability") + theme_light()
+mt.model.sel.plot.3 = ggplot(mt.results.3, aes(x=factor(Model, levels=Model),y=Prob)) + geom_col() + xlab("Model structure") + ylab("Posterior probability") + theme_light()
+pt.model.sel.plot.3 = ggplot(pt.results.3, aes(x=factor(Model, levels=Model),y=Prob)) + geom_col() + xlab("Model structure") + ylab("Posterior probability") + theme_light()
 
 res.factor=3
 png(output.others.plot, width=800*res.factor, height=800*res.factor, res=72*res.factor)

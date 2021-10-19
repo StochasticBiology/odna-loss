@@ -192,7 +192,7 @@ pt.valid.df = rbind(data.frame(Species=pt.tmp.valid.df$Species, Stat="TP", Value
 mt.top10.plot = ggplot(mt.top10, aes(x = factor(Model, levels=Model), y = Prob)) +
   geom_col(fill="#FF8888", colour="#000000") +
   theme_light() + theme(axis.text.x = element_text(size = 10, margin = unit(c(t = -5, r = 0, b = 0, l = 0), "cm"))) +
-  xlab("Model structure") + ylab("Posterior probability")
+  xlab("Model structure") + ylab("Posterior probability") 
 pt.top10.plot = ggplot(pt.top10, aes(x = factor(Model, levels=Model), y = Prob)) +
   geom_col(fill="#8888FF", colour="#000000") +
   theme_light() + theme(axis.text.x = element_text(size = 10, margin = unit(c(t = -5, r = 0, b = 0, l = 0), "cm"))) +
