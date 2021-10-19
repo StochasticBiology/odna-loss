@@ -350,6 +350,7 @@ fi
 ### manuscript preparation
 if [[ $commandstr == *latextable* ]]; then
     echo "Reformatting tables..."
+    chmod +x latex-table.sh
     # these just convert text output from R into LaTeX-formatted tables
     ./latex-table.sh Data/model-sel-simple-bayeslm-stats.csv > Data/latex-modelsel-simple.tex
     ./latex-table.sh Data/model-sel-barcode-bayeslm-stats.csv > Data/latex-modelsel-barcode.tex
