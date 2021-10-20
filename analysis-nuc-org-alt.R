@@ -286,7 +286,7 @@ for(j in 1:length(mt.regex)) {
     mt.training.refs = sample(seq(from=1,to=mt.sample.n), size=mt.sample.n*testpropn)
     mt.training.set = working.df[mt.training.refs,]
     mt.test.set = working.df[-mt.training.refs,]
-    mt.trained.tree = tree(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robust - Uni1 - Uni2, mt.training.set)
+    mt.trained.tree = tree(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robustness - Uni1 - Uni2, mt.training.set)
     mt.training.predictions = predict(mt.trained.tree, mt.training.set)
     mt.test.predictions = predict(mt.trained.tree, mt.test.set)
     mt.test.predicted.class = ifelse(mt.test.predictions[,which(colnames(mt.test.predictions) == "MT")] < 0.5, "NU", "MT")
@@ -312,7 +312,7 @@ for(j in 1:length(pt.regex)) {
     pt.training.refs = sample(seq(from=1,to=pt.sample.n), size=pt.sample.n*testpropn)
     pt.training.set = working.df[pt.training.refs,]
     pt.test.set = working.df[-pt.training.refs,]
-    pt.trained.tree = tree(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robust - Uni1 - Uni2, pt.training.set)
+    pt.trained.tree = tree(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robustness - Uni1 - Uni2, pt.training.set)
     pt.training.predictions = predict(pt.trained.tree, pt.training.set)
     pt.test.predictions = predict(pt.trained.tree, pt.test.set)
     pt.test.predicted.class = ifelse(pt.test.predictions[,which(colnames(pt.test.predictions) == "PT")] < 0.5, "NU", "PT")
@@ -405,7 +405,7 @@ for(j in 2:length(pt.regex)) {
   all.pt = rbind(all.pt, pt.compare[[j]])
 }
 
-mt.cross.tree = tree(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robust - Uni1 - Uni2, all.mt)
+mt.cross.tree = tree(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robustness - Uni1 - Uni2, all.mt)
 mt.cross.training.predictions = predict(mt.cross.tree, all.mt)
 mt.cross.test.predictions = predict(mt.cross.tree, all.pt)
 mt.cross.training.predicted.class = ifelse(mt.cross.training.predictions[,which(colnames(mt.cross.training.predictions) == "MT")] < 0.5, "NU", "MT")
@@ -418,7 +418,7 @@ plot(mt.cross.tree)
 text(mt.cross.tree, pretty=1)
 title("MT predict PT")
   
-pt.cross.tree = tree(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robust - Uni1 - Uni2, all.pt)
+pt.cross.tree = tree(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robustness - Uni1 - Uni2, all.pt)
 pt.cross.training.predictions = predict(pt.cross.tree, all.pt)
 pt.cross.test.predictions = predict(pt.cross.tree, all.mt)
 pt.cross.training.predicted.class = ifelse(pt.cross.training.predictions[,which(colnames(pt.cross.training.predictions) == "PT")] < 0.5, "NU", "PT")
@@ -478,7 +478,7 @@ for(j in 1:length(mt.regex)) {
     mt.training.refs = sample(seq(from=1,to=mt.sample.n), size=mt.sample.n*testpropn)
     mt.training.set = working.df[mt.training.refs,]
     mt.test.set = working.df[-mt.training.refs,]
-    mt.trained.rf = randomForest(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robust - Uni1 - Uni2, mt.training.set)
+    mt.trained.rf = randomForest(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robustness - Uni1 - Uni2, mt.training.set)
     mt.training.predictions = predict(mt.trained.rf, mt.training.set)
     mt.test.predictions = predict(mt.trained.rf, mt.test.set)
     mt.test.predicted.class = mt.test.predictions
@@ -502,7 +502,7 @@ for(j in 1:length(pt.regex)) {
     pt.training.refs = sample(seq(from=1,to=pt.sample.n), size=pt.sample.n*testpropn)
     pt.training.set = working.df[pt.training.refs,]
     pt.test.set = working.df[-pt.training.refs,]
-    pt.trained.rf = randomForest(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robust - Uni1 - Uni2, pt.training.set)
+    pt.trained.rf = randomForest(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robustness - Uni1 - Uni2, pt.training.set)
     pt.training.predictions = predict(pt.trained.rf, pt.training.set)
     pt.test.predictions = predict(pt.trained.rf, pt.test.set)
     pt.test.predicted.class = pt.test.predictions
@@ -595,7 +595,7 @@ all.mt$Compartment = as.factor(ifelse(all.mt$Compartment == "MT", "O", "NU"))
 all.pt$Compartment = droplevels(all.pt$Compartment)
 all.pt$Compartment = as.factor(ifelse(all.pt$Compartment == "PT" | all.pt$Compartment == "CP", "O", "NU"))
 
-mt.cross.rf = randomForest(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robust - Uni1 - Uni2, droplevels(all.mt))
+mt.cross.rf = randomForest(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robustness - Uni1 - Uni2, droplevels(all.mt))
 mt.cross.training.predictions = predict(mt.cross.rf, all.mt)
 mt.cross.test.predictions = predict(mt.cross.rf, all.pt)
 mt.cross.training.predicted.class = mt.cross.training.predictions
@@ -604,7 +604,7 @@ mt.cross.training.accuracy = sum(mt.cross.training.predicted.class == all.mt$Com
 mt.cross.test.accuracy = sum(mt.cross.test.predicted.class == all.pt$Compartment)/nrow(all.pt)
 results = rbind(results, data.frame(complex="allPT", model="RF-cross",training.acc=mt.cross.training.accuracy, test.acc=mt.cross.test.accuracy, balance=sum(all.pt$Compartment!="PT")/nrow(all.pt)))
 
-pt.cross.rf = randomForest(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robust - Uni1 - Uni2, droplevels(all.pt))
+pt.cross.rf = randomForest(Compartment ~ . - Compartment - GeneLabel - Species - GC - GC12 - GC3 - Robustness - Uni1 - Uni2, droplevels(all.pt))
 pt.cross.training.predictions = predict(pt.cross.rf, all.pt)
 pt.cross.test.predictions = predict(pt.cross.rf, all.mt)
 pt.cross.training.predicted.class = pt.cross.training.predictions
