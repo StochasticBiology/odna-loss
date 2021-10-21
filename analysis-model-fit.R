@@ -80,8 +80,8 @@ pt.y = pt.df$Index
 
 # perform model selection and grab posterior probabilities and signs of coefficients
 
-mt.fit <- modelSelection(mt.y ~ mt.x[,1]+mt.x[,2]+mt.x[,3]+mt.x[,4]+mt.x[,5]+mt.x[,6]+mt.x[,7]+mt.x[,8]+mt.x[,9]+mt.x[,10], priorCoef=priorCoef, priorDelta=priorDelta)
-pt.fit <- modelSelection(pt.y ~ pt.x[,1]+pt.x[,2]+pt.x[,3]+pt.x[,4]+pt.x[,5]+pt.x[,6]+pt.x[,7]+pt.x[,8]+pt.x[,9]+pt.x[,10], priorCoef=priorCoef, priorDelta=priorDelta)
+mt.fit <- modelSelection(mt.y ~ mt.x[,1]+mt.x[,2]+mt.x[,3]+mt.x[,4]+mt.x[,5]+mt.x[,6]+mt.x[,7]+mt.x[,8]+mt.x[,9], priorCoef=priorCoef, priorDelta=priorDelta)
+pt.fit <- modelSelection(pt.y ~ pt.x[,1]+pt.x[,2]+pt.x[,3]+pt.x[,4]+pt.x[,5]+pt.x[,6]+pt.x[,7]+pt.x[,8]+pt.x[,9], priorCoef=priorCoef, priorDelta=priorDelta)
 
 feature.labels = model.fit.labels()
 
