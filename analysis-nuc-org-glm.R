@@ -44,7 +44,7 @@ allmodelset = modelset
 species.set = unique(nuc.df$Species)
 for(species in species.set) {
   test.df = all.df[all.df$Species==species,]
-  glm.x = subset(test.df, select=-c(Species, Compartment, GeneLabel, GC, Uni1, Uni2, Robust, GC12, GC3, Encoding))
+  glm.x = subset(test.df, select=-c(Species, Compartment, GeneLabel, GC, Uni1, Uni2, Robustness, GC12, GC3, Encoding))
   glm.y = test.df$Encoding
   if(length(unique(glm.y)) < 2 | length(glm.y) < 10) {
     print(paste("Only one compartment, or insufficient records, found in ", species))
@@ -124,7 +124,7 @@ allmodelset = modelset
 species.set = unique(nuc.df$Species)
 for(species in species.set) {
   test.df = all.df[all.df$Species==species,]
-  glm.x = subset(test.df, select=-c(Species, Compartment, GeneLabel, GC, Uni1, Uni2, Robust, GC12, GC3, Encoding))
+  glm.x = subset(test.df, select=-c(Species, Compartment, GeneLabel, GC, Uni1, Uni2, Robustness, GC12, GC3, Encoding))
   glm.y = test.df$Encoding
   if(length(unique(glm.y)) < 2 | length(glm.y) < 10) {
     print(paste("Only one compartment, or insufficient records, found in ", species))
