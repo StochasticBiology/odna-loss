@@ -351,10 +351,10 @@ if [[ $commandstr == *latextable* ]]; then
     echo "Reformatting tables..."
     chmod +x latex-table.sh
     # these just convert text output from R into LaTeX-formatted tables
-    ./latex-table.sh Data/model-sel-simple-bayeslm-stats.csv > Data/latex-modelsel-simple.tex
-    ./latex-table.sh Data/model-sel-barcode-bayeslm-stats.csv > Data/latex-modelsel-barcode.tex
-    ./latex-table.sh Data/index-regression-simple-manual-sampled.csv > Data/latex-regression-simple.tex
-    ./latex-table.sh Data/nuc-org-manual-results.csv > Data/latex-nucorg.tex
+    ./latex-table.sh Data/model-sel-simple-bayeslm-stats.csv > Outputs/latex-modelsel-simple.tex
+    ./latex-table.sh Data/model-sel-barcode-bayeslm-stats.csv > Outputs/latex-modelsel-barcode.tex
+    ./latex-table.sh Data/index-regression-simple-manual-sampled.csv > Outputs/latex-regression-simple.tex
+    ./latex-table.sh Data/nuc-org-manual-results.csv > Outputs/latex-nucorg.tex
     # this pulls statistics from the code output and embeds in LaTeX
     Rscript latex-interpret.R
 fi
