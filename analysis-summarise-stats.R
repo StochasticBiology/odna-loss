@@ -9,8 +9,11 @@ if(length(args) < 7) {
 
 message("Loading libraries...")
 
+library(ggplot2)
+library(gridExtra)
+
 library(phytools)
-set.seed(1)
+set.seed(121)
 
 source("lengthNormalise.R")
 
@@ -129,8 +132,9 @@ write.csv(mt.df, mt.out.file, row.names=F, quote=F)
 write.csv(pt.df, pt.out.file, row.names=F, quote=F)
 
 n.features = 9
-png(out.plot, width=1200,height=800)
-par(mfrow=c(4,n.features))
+#png(out.plot, width=1200,height=800)
+#par(mfrow=c(4,n.features))
+plots = list()
 for(i in 1:n.features) {
   to.plot = data.frame(GeneLabel=NULL, Sampled=NULL, AltSampled=NULL)
   for(j in 1:length(unique(mt.df$GeneLabel))) {
@@ -141,9 +145,11 @@ for(i in 1:n.features) {
       to.plot = rbind(to.plot, data.frame(GeneLabel=label, Sampled=mt.df[ref.1,i], AltSampled=mt.df[ref.2,i]))
     }
   }
-  plot(to.plot$Sampled, to.plot$AltSampled, xlab="", ylab="")
-  abline(a=0,b=1)
-  title(paste("MT", colnames(mt.df)[i], "r=", round(cor(to.plot$Sampled, to.plot$AltSampled, use = "complete.obs"), digits=3)))
+  plots[[length(plots)+1]] = ggplot(to.plot, aes(x=Sampled, y=AltSampled)) +
+                               geom_point() +
+			       geom_abline(slope=1, intercept=0) +
+			       ggtitle(paste("MT", colnames(mt.df)[i], "\nr=", round(cor(to.plot$Sampled, to.plot$AltSampled, use = "complete.obs"), digits=3))) +
+			       theme_light()
 }
 for(i in 1:n.features) {
   to.plot = data.frame(GeneLabel=NULL, Sampled=NULL, AltSampled=NULL)
@@ -155,9 +161,11 @@ for(i in 1:n.features) {
       to.plot = rbind(to.plot, data.frame(GeneLabel=label, Sampled=pt.df[ref.1,i], AltSampled=pt.df[ref.2,i]))
     }
   }
-  plot(to.plot$Sampled, to.plot$AltSampled, xlab="", ylab="")
-  abline(a=0,b=1)
-  title(paste("PT", colnames(pt.df)[i], "r=", round(cor(to.plot$Sampled, to.plot$AltSampled, use = "complete.obs"), digits=3)))
+  plots[[length(plots)+1]] = ggplot(to.plot, aes(x=Sampled, y=AltSampled)) +
+                               geom_point() +
+			       geom_abline(slope=1, intercept=0) +
+			       ggtitle(paste("PT", colnames(mt.df)[i], "\nr=", round(cor(to.plot$Sampled, to.plot$AltSampled, use = "complete.obs"), digits=3))) +
+			       theme_light()
 }
 
 for(i in 1:n.features) {
@@ -170,9 +178,11 @@ for(i in 1:n.features) {
       to.plot = rbind(to.plot, data.frame(GeneLabel=label, Sampled=mt.df[ref.1,i], All=mt.df[ref.2,i]))
     }
   }
-  plot(to.plot$Sampled, to.plot$All, xlab="", ylab="")
-  abline(a=0,b=1)
-  title(paste("MT", colnames(mt.df)[i], "r=", round(cor(to.plot$Sampled, to.plot$All, use = "complete.obs"), digits=3)))
+  plots[[length(plots)+1]] = ggplot(to.plot, aes(x=Sampled, y=All)) +
+                               geom_point() +
+			       geom_abline(slope=1, intercept=0) +
+			       ggtitle(paste("MT", colnames(mt.df)[i], "\nr=", round(cor(to.plot$Sampled, to.plot$All, use = "complete.obs"), digits=3))) +
+			       theme_light()
 }
 for(i in 1:n.features) {
   to.plot = data.frame(GeneLabel=NULL, Sampled=NULL, All=NULL)
@@ -184,10 +194,14 @@ for(i in 1:n.features) {
       to.plot = rbind(to.plot, data.frame(GeneLabel=label, Sampled=pt.df[ref.1,i], All=pt.df[ref.2,i]))
     }
   }
-  plot(to.plot$Sampled, to.plot$All, xlab="", ylab="")
-  abline(a=0,b=1)
-  title(paste("PT", colnames(pt.df)[i], "r=", round(cor(to.plot$Sampled, to.plot$All, use = "complete.obs"), digits=3)))
+  plots[[length(plots)+1]] = ggplot(to.plot, aes(x=Sampled, y=All)) +
+                               geom_point() +
+			       geom_abline(slope=1, intercept=0) +
+			       ggtitle(paste("PT", colnames(mt.df)[i], "\nr=", round(cor(to.plot$Sampled, to.plot$All, use = "complete.obs"), digits=3))) +
+			       theme_light()
 }
 
-
+res.factor = 3
+png(out.plot, width=1200*res.factor,height=800*res.factor,res=72*res.factor)
+grid.arrange(grobs=plots, nrow=4)
 dev.off()

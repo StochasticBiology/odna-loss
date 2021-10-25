@@ -70,7 +70,7 @@ if [[ $commandstr == *reprocess* ]]; then
     commandstr="processorganelles,manuallabel,processtreesmanual,getindicessimple,parsegenomes,complexes,processotherorganelles,datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics,latextable"
 fi
 
-if [[ $commandstr == *statistics* ]]; then
+if [[ $commandstr == *juststatistics* ]]; then
     commandstr="datavisualisation,indexregression,bindingenergy,nuclearvsorganelle,otherorganellepredictors,supportingstatistics,latextable"
 fi
 
