@@ -17,7 +17,7 @@ library(randomForest)
 library(glmnet)
 library(phytools)
 library(e1071)
-set.seed(1)
+set.seed(121)
 
 # lots in here so far!
 ######### Section 0. get data.
@@ -119,7 +119,7 @@ for(i in 1:nsamp) {
   mt.training.refs = sample(seq(from=1,to=mt.sample.n), size=mt.sample.n*testpropn)
   mt.training.set = mt.df[mt.training.refs,]
   mt.test.set = mt.df[-mt.training.refs,]
-  mt.trained.tree = tree(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robust, mt.training.set)
+  mt.trained.tree = tree(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robustness, mt.training.set)
   mt.training.predictions = predict(mt.trained.tree, mt.training.set)
   mt.test.predictions = predict(mt.trained.tree, mt.test.set)
   
@@ -127,7 +127,7 @@ for(i in 1:nsamp) {
   pt.training.refs = sample(seq(from=1,to=pt.sample.n), size=pt.sample.n*testpropn)
   pt.training.set = pt.df[pt.training.refs,]
   pt.test.set = pt.df[-pt.training.refs,]
-  pt.trained.tree = tree(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robust, pt.training.set)
+  pt.trained.tree = tree(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robustness, pt.training.set)
   pt.training.predictions = predict(pt.trained.tree, pt.training.set)
   pt.test.predictions = predict(pt.trained.tree, pt.test.set)
 
@@ -174,7 +174,7 @@ for(i in 1:nsamp) {
   mt.training.refs = sample(seq(from=1,to=mt.sample.n), size=mt.sample.n*testpropn)
   mt.training.set = subset(mt.df[mt.training.refs,], select=-GeneLabel)
   mt.test.set = subset(mt.df[-mt.training.refs,], select=-GeneLabel)
-  mt.trained.lm = lm(Index ~ . - Index - Occurrence - Uni1 - Uni2 - GC12 - GC3 - Robust, mt.training.set)
+  mt.trained.lm = lm(Index ~ . - Index - Occurrence - Uni1 - Uni2 - GC12 - GC3 - Robustness, mt.training.set)
   mt.training.predictions = predict(mt.trained.lm, mt.training.set)
   mt.test.predictions = predict(mt.trained.lm, mt.test.set)
   
@@ -182,7 +182,7 @@ for(i in 1:nsamp) {
   pt.training.refs = sample(seq(from=1,to=pt.sample.n), size=pt.sample.n*testpropn)
   pt.training.set = subset(pt.df[pt.training.refs,], select=-GeneLabel)
   pt.test.set = subset(pt.df[-pt.training.refs,], select=-GeneLabel)
-  pt.trained.lm = lm(Index ~ . - Index - Occurrence - Uni1 - Uni2 - GC12 - GC3 - Robust, pt.training.set)
+  pt.trained.lm = lm(Index ~ . - Index - Occurrence - Uni1 - Uni2 - GC12 - GC3 - Robustness, pt.training.set)
   pt.training.predictions = predict(pt.trained.lm, pt.training.set)
   pt.test.predictions = predict(pt.trained.lm, pt.test.set)
 
@@ -321,9 +321,9 @@ results = rbind(results, data.frame(method="LM-Reduced", mt.training=mean(mt.tra
 
 message("Ridge and LASSO...")
 
-mt.reduced.predictors = as.matrix(subset(mt.df, select=-c(Index, Occurrence, GeneLabel, Uni1, Uni2, GC12, GC3, Robust)))
+mt.reduced.predictors = as.matrix(subset(mt.df, select=-c(Index, Occurrence, GeneLabel, Uni1, Uni2, GC12, GC3, Robustness)))
 mt.reduced.response = as.matrix(subset(mt.df, select=Index))
-pt.reduced.predictors = as.matrix(subset(pt.df, select=-c(Index, Occurrence, GeneLabel, Uni1, Uni2, GC12, GC3, Robust)))
+pt.reduced.predictors = as.matrix(subset(pt.df, select=-c(Index, Occurrence, GeneLabel, Uni1, Uni2, GC12, GC3, Robustness)))
 pt.reduced.response = as.matrix(subset(pt.df, select=Index))
 
 # ridge regression for occurrence index
@@ -455,10 +455,10 @@ for(i in 1:nsamp) {
   mt.training.set = mt.df[mt.training.refs,]
   mt.test.set = mt.df[-mt.training.refs,]
   if(tune == T) {
-    mt.trained.set = tune(svm, Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robust, data=mt.training.set, ranges=list(epsilon=seq(0,1,0.1), cost=1:10))
+    mt.trained.set = tune(svm, Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robustness, data=mt.training.set, ranges=list(epsilon=seq(0,1,0.1), cost=1:10))
     mt.trained.svm = mt.trained.set$best.model
   } else {
-    mt.trained.svm = svm(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robust, mt.training.set)
+    mt.trained.svm = svm(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robustness, mt.training.set)
   }
   mt.training.predictions = predict(mt.trained.svm, mt.training.set)
   mt.test.predictions = predict(mt.trained.svm, mt.test.set)
@@ -468,10 +468,10 @@ for(i in 1:nsamp) {
   pt.training.set = pt.df[pt.training.refs,]
   pt.test.set = pt.df[-pt.training.refs,]
   if(tune == T) {
-    pt.trained.set = tune(svm, Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robust, data=pt.training.set, ranges=list(epsilon=seq(0,1,0.1), cost=1:10))
+    pt.trained.set = tune(svm, Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robustness, data=pt.training.set, ranges=list(epsilon=seq(0,1,0.1), cost=1:10))
     pt.trained.svm = pt.trained.set$best.model
   } else {
-    pt.trained.svm = svm(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robust, pt.training.set)
+    pt.trained.svm = svm(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robustness, pt.training.set)
   }
   pt.training.predictions = predict(pt.trained.svm, pt.training.set)
   pt.test.predictions = predict(pt.trained.svm, pt.test.set)
@@ -525,7 +525,7 @@ for(i in 1:nsamp) {
   mt.training.refs = sample(seq(from=1,to=mt.sample.n), size=mt.sample.n*testpropn)
   mt.training.set = mt.df[mt.training.refs,]
   mt.test.set = mt.df[-mt.training.refs,]
-  mt.trained.rf = randomForest(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robust, mt.training.set)
+  mt.trained.rf = randomForest(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robustness, mt.training.set)
   mt.training.predictions = predict(mt.trained.rf, mt.training.set)
   mt.test.predictions = predict(mt.trained.rf, mt.test.set)
   
@@ -533,7 +533,7 @@ for(i in 1:nsamp) {
   pt.training.refs = sample(seq(from=1,to=pt.sample.n), size=pt.sample.n*testpropn)
   pt.training.set = pt.df[pt.training.refs,]
   pt.test.set = pt.df[-pt.training.refs,]
-  pt.trained.rf = randomForest(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robust, pt.training.set)
+  pt.trained.rf = randomForest(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robustness, pt.training.set)
   pt.training.predictions = predict(pt.trained.rf, pt.training.set)
   pt.test.predictions = predict(pt.trained.rf, pt.test.set)
 
@@ -628,8 +628,8 @@ results = rbind(results, data.frame(method="RF-Reduced", mt.training=mean(mt.tra
 #################################
 #################################
 
-mt.trained.rf = randomForest(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robust, mt.df)
-pt.trained.rf = randomForest(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robust, pt.df)
+mt.trained.rf = randomForest(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robustness, mt.df)
+pt.trained.rf = randomForest(Index ~ . - Index - Occurrence - GeneLabel - Uni1 - Uni2 - GC12 - GC3 - Robustness, pt.df)
 
 mt.training.predictions = predict(mt.trained.rf, mt.df)
 pt.predictions = predict(mt.trained.rf, pt.df)
@@ -642,8 +642,8 @@ pt.cross.accuracy = cor(pt.predictions, pt.df$Index, method="spearman")
 
 results = rbind(results, data.frame(method="RF-Cross", mt.training=mt.accuracy, mt.test=0, pt.training=pt.accuracy, pt.test=0, mt.cross=mt.cross.accuracy, pt.cross=pt.cross.accuracy))
 
-varImpPlot(mt.trained.rf)
-varImpPlot(pt.trained.rf)
+varImpPlot(mt.trained.rf, main="MT (all genes)")
+varImpPlot(pt.trained.rf, main="PT (all genes)")
 dev.off()
 
 mt.trained.red.rf = randomForest(Index ~ Hydro + GC, mt.df)
